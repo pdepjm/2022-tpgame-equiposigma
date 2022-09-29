@@ -5,6 +5,11 @@ program juego {
 	
 	
 	game.title("Juego Base")
-	game.addVisual(pepita)
+	game.addVisual(jugador)
 	game.start()
 }
+
+
+method movert(boton,Arriba,mbotonabajo)´
+
+	keyboard.botonArriba.up
