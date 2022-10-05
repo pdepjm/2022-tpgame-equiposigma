@@ -1,15 +1,7 @@
-import wollok.game.*
-import pepita.*
+import juego.*
 
 program juego {
 	
+	juego.iniciar()
 	
-	game.title("Juego Base")
-	game.addVisual(jugador)
-	game.start()
 }
-
-
-method movert(boton,Arriba,mbotonabajo)´
-
-	keyboard.botonArriba.up
