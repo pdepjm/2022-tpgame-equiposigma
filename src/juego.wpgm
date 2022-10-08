@@ -12,6 +12,7 @@ program juego {
 	game.title("Juego Base")
 	
 	
+	
 	const cajas = [caja1, caja2, caja3, caja4, caja5, caja6, caja7, caja8, caja9, caja10, caja11, caja12, caja13, caja14,
 		caja15, caja16, caja17, caja18, caja19, caja40, caja41, caja42, caja43, caja44, caja45, caja46, caja47, caja48]
 		
@@ -19,6 +20,9 @@ program juego {
 	)
 	const jugador = new Jugador()
 	game.addVisual(jugador)
+	
+	const jugador2 = new Jugador()
+	game.addVisualCharacter(jugador2)
 
 	/*keyboard.k().onPressDo{jugador.disparar()}
 	game.onTick(50, "caer", {jugador.gravedad()})*/
@@ -27,9 +31,7 @@ program juego {
 	keyboard.w().onPressDo{jugador.moverseA(arriba)}
 	keyboard.s().onPressDo{jugador.moverseA(abajo)}
 	
-	const laser = new Laser(position = game.center())
-	game.onTick(10, "afectar colliders", {laser.afectarColliders()})
-	game.addVisual(laser)
+	keyboard.e().onPressDo{jugador.disparar()}
 	game.start()
 	
 }
