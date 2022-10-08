@@ -1,53 +1,35 @@
 import wollok.game.*
-import jugadores.*
-import juego.*
+import cajas.*
+import jugadorClase.*
+import direcciones.*
+import laser.*
+
 
 program juego {
 	game.width(20)
 	game.height(15)
-	game.cellSize(25)
+
 	game.title("Juego Base")
 	
-	game.addVisual(piedras)
-	game.addVisual(caja1)
-	game.addVisual(caja2)
-	game.addVisual(caja3)
-	game.addVisual(caja4)
-	game.addVisual(caja5)
-	game.addVisual(caja6)
-	game.addVisual(caja7)
-	game.addVisual(caja8)
-	game.addVisual(caja9)
-	game.addVisual(caja10)
-	game.addVisual(caja11)
-	game.addVisual(caja12)
-	game.addVisual(caja13)
-	game.addVisual(caja14)
-	game.addVisual(caja15)
-	game.addVisual(caja16)
-	game.addVisual(caja17)
-	game.addVisual(caja18)
-	game.addVisual(caja19)
-	game.addVisual(caja40)
-	game.addVisual(caja41)
-	game.addVisual(caja42)
-	game.addVisual(caja43)
-	game.addVisual(caja44)
-	game.addVisual(caja45)
-	game.addVisual(caja46)
-	game.addVisual(caja47)
-	game.addVisual(caja48)
-
 	
+	const cajas = [caja1, caja2, caja3, caja4, caja5, caja6, caja7, caja8, caja9, caja10, caja11, caja12, caja13, caja14,
+		caja15, caja16, caja17, caja18, caja19, caja40, caja41, caja42, caja43, caja44, caja45, caja46, caja47, caja48]
+		
+	cajas.forEach({caja => game.addVisual(caja)}
+	)
+	const jugador = new Jugador()
 	game.addVisual(jugador)
-	//game.addVisualCharacter(jugador2)
-	keyboard.a().onPressDo{jugador.izquierda()}
-	keyboard.s().onPressDo{jugador.bajar()}
-	keyboard.d().onPressDo{jugador.derecha()}
-	keyboard.j().onPressDo{jugador.saltar()}
-	keyboard.k().onPressDo{jugador.disparar()}
+
+	/*keyboard.k().onPressDo{jugador.disparar()}
+	game.onTick(50, "caer", {jugador.gravedad()})*/
+	keyboard.a().onPressDo{jugador.moverseA(izquierda)}
+	keyboard.d().onPressDo{jugador.moverseA(derecha)}
+	keyboard.w().onPressDo{jugador.moverseA(arriba)}
+	keyboard.s().onPressDo{jugador.moverseA(abajo)}
 	
-	game.onTick(50, "caer", {jugador.gravedad()})
+	const laser = new Laser(position = game.center())
+	game.onTick(10, "afectar colliders", {laser.afectarColliders()})
+	game.addVisual(laser)
 	game.start()
 	
 }

@@ -4,12 +4,37 @@ import jugadores.*
 class Caja{
 	var property position
 	method image() = "caja.png"
+	
+	method restringeMovimiento() {return true}
+	
+	method efectoLaser() {}
+		
 }
 
-object piedras {
-	var property position = game.at(0,0)
-	method image() = "caja.png"
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const caja40 = new Caja( position= game.at(1,0))
 const caja1 = new Caja( position= game.at(2,0))

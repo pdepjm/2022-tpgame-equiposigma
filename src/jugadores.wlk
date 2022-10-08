@@ -1,4 +1,5 @@
 import wollok.game.*
+import cajas.*
 
 /*class jugador {
 	
@@ -28,7 +29,7 @@ object jugador {
 	var estaDisparando = false 
 	var ultimaDireccion = imagen
 	method image() = imagen
- 	method subir()
+ 	/*method subir()
 	{
 		if ( (game.getObjectsIn(position.up(1))).size() == 0)
 		(
@@ -82,7 +83,7 @@ object jugador {
 		{
 			self.bajar()
 		}
-	}
+	}*/
 	    method disparar()
     {	
     	estaDisparando = true
@@ -109,5 +110,6 @@ object jugador {
         game.schedule(1000, {imagen = ultimaDireccion})
         game.schedule(1500, {estaDisparando = false})
         //game.onTick(200,"avanzar", {self.agrandate()} )
-    }
+
+		} 
 }
