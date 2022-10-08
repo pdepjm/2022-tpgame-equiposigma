@@ -1,7 +1,53 @@
+import wollok.game.*
+import jugadores.*
 import juego.*
 
 program juego {
+	game.width(20)
+	game.height(15)
+	game.cellSize(25)
+	game.title("Juego Base")
 	
-	juego.iniciar()
+	game.addVisual(piedras)
+	game.addVisual(caja1)
+	game.addVisual(caja2)
+	game.addVisual(caja3)
+	game.addVisual(caja4)
+	game.addVisual(caja5)
+	game.addVisual(caja6)
+	game.addVisual(caja7)
+	game.addVisual(caja8)
+	game.addVisual(caja9)
+	game.addVisual(caja10)
+	game.addVisual(caja11)
+	game.addVisual(caja12)
+	game.addVisual(caja13)
+	game.addVisual(caja14)
+	game.addVisual(caja15)
+	game.addVisual(caja16)
+	game.addVisual(caja17)
+	game.addVisual(caja18)
+	game.addVisual(caja19)
+	game.addVisual(caja40)
+	game.addVisual(caja41)
+	game.addVisual(caja42)
+	game.addVisual(caja43)
+	game.addVisual(caja44)
+	game.addVisual(caja45)
+	game.addVisual(caja46)
+	game.addVisual(caja47)
+	game.addVisual(caja48)
+
+	
+	game.addVisual(jugador)
+	//game.addVisualCharacter(jugador2)
+	keyboard.a().onPressDo{jugador.izquierda()}
+	keyboard.s().onPressDo{jugador.bajar()}
+	keyboard.d().onPressDo{jugador.derecha()}
+	keyboard.j().onPressDo{jugador.saltar()}
+	keyboard.k().onPressDo{jugador.disparar()}
+	
+	game.onTick(50, "caer", {jugador.gravedad()})
+	game.start()
 	
 }
