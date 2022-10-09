@@ -63,7 +63,7 @@ class Boton{
 	
 }
 
-object play{}
+object play inherits Boton()
 
 object controles{}
 
