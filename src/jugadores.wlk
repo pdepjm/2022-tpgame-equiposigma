@@ -20,7 +20,7 @@ class Laser {
     //method agrandate() {
     //}
 }
-object jugador {
+object Jugador {
 	var property position = game.center()
 	var property estaSaltando = false
 	var direccion = 0

@@ -1,8 +1,9 @@
 import wollok.game.*
 import cajas.*
-import jugadorClase.*
+//import jugadorClase.*
 import direcciones.*
-import laser.*
+//import laser.*
+import jugadores.*
 
 
 program juego {
