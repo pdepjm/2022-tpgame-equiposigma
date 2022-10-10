@@ -1,9 +1,9 @@
 import wollok.game.*
 import cajas.*
-//import jugadorClase.*
+import jugadorClase.*
 import direcciones.*
-//import laser.*
-import jugadores.*
+import laser.*
+//import jugadores.*
 
 
 program juego {
@@ -11,8 +11,6 @@ program juego {
 	game.height(15)
 
 	game.title("Juego Base")
-	
-	
 	
 	const cajas = [caja1, caja2, caja3, caja4, caja5, caja6, caja7, caja8, caja9, caja10, caja11, caja12, caja13, caja14,
 		caja15, caja16, caja17, caja18, caja19, caja40, caja41, caja42, caja43, caja44, caja45, caja46, caja47, caja48]
@@ -23,16 +21,20 @@ program juego {
 	game.addVisual(jugador)
 	
 	const jugador2 = new Jugador()
-	game.addVisualCharacter(jugador2)
+	game.addVisual(jugador2)
 
-	/*keyboard.k().onPressDo{jugador.disparar()}
-	game.onTick(50, "caer", {jugador.gravedad()})*/
+	game.onTick(50, "caer", {jugador.gravedad()})
+	game.onTick(50, "caer", {jugador2.gravedad()})
 	keyboard.a().onPressDo{jugador.moverseA(izquierda)}
 	keyboard.d().onPressDo{jugador.moverseA(derecha)}
-	keyboard.w().onPressDo{jugador.moverseA(arriba)}
-	keyboard.s().onPressDo{jugador.moverseA(abajo)}
-	
+	keyboard.w().onPressDo{jugador.saltar()}
 	keyboard.e().onPressDo{jugador.disparar()}
+
+	keyboard.i().onPressDo{jugador2.saltar()}
+	keyboard.l().onPressDo{jugador2.moverseA(derecha)}
+	keyboard.j().onPressDo{jugador2.moverseA(izquierda)}
+	keyboard.p().onPressDo{jugador2.disparar()}	
+	
 	game.start()
 	
 }
