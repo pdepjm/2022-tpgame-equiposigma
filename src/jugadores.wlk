@@ -1,6 +1,10 @@
 import wollok.game.*
 import cajas.*
 
+//--IGNORAR COMPLETAMENTE ESTE ARCHIVO
+//Esta re feo
+//El posta es jugadorClase
+
 /*class jugador {
 	
 	var id 

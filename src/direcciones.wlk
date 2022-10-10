@@ -4,6 +4,7 @@ import cajas.*
 
 
 //Delego el buscar una posicion en una direccion en una clase
+//Obtengo la linea de disparo del laser en una direccion
 
 object izquierda {
 	method posicionSiguiente(posicionActual) = posicionActual.left(1)
