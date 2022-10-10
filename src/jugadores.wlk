@@ -1,18 +1,19 @@
 import wollok.game.*
 import direcciones.*
 
-class jugador {
+object jugador {
 	
 	var id 
 	var skin
 	var teclasUtilizadas
-	var property posicion = game.origin()
+	var property position = game.at(8,8)
 	
 	
 	method mover(direccion){
-		posicion = direccion.siguientePosicion(posicion)
+		position = direccion.siguientePosicion(position)
 	}
+	
+	method image() { return "pepita.png"}
 	
 }
 
-object 
