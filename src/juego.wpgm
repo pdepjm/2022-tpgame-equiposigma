@@ -27,7 +27,7 @@ program juego {
 									poder = "kamehameha.png")
 	game.addVisual(jugador)
 	
-	const jugador2 = new Jugador(   position = game.at(16,2),
+	const jugador3 = new Jugador(   position = game.at(16,2),
 									orientacion = izquierda,
 									imagen = "supermanizq.png",
 									imagenDerecha = "superman.png",
@@ -35,6 +35,15 @@ program juego {
 									imagenDisparo = "supermanlaser.png",
 									imagenDisparoIzquierda = "supermanlaserizq.png",
 									poder = "visionCalorica.png")
+									
+		const jugador2 = new Jugador(   position = game.at(16,2),
+									orientacion = izquierda,
+									imagen = "zenitsu.png",
+									imagenDerecha = "zenitsu.png",
+									imagenIzquierda = "zenitsu.png",
+									imagenDisparo = "vacio.png",
+									imagenDisparoIzquierda = "vacio.png",
+									poder = "rayozenitsu.png")
 	game.addVisual(jugador2)
 
 	game.onTick(50, "caer", {jugador.gravedad()})
