@@ -27,7 +27,7 @@ object izquierda {
 		const xALaIzquierda = valoresDeX.filter({x => x < posicion.x()})
 		var lineaDeTiro = []
 		xALaIzquierda.forEach({x => lineaDeTiro.add(game.at(x, valorDeY))})
-		const primeraPosicionBloqueada = lineaDeTiro.findOrDefault({pos => self.hayBloqueoEn(pos)}, lineaDeTiro.first())
+		const primeraPosicionBloqueada = lineaDeTiro.reverse().findOrDefault({pos => self.hayBloqueoEn(pos)}, lineaDeTiro.first())
 		lineaDeTiro = lineaDeTiro.filter({pos => pos.x() > primeraPosicionBloqueada.x()})
 		return lineaDeTiro
 		
