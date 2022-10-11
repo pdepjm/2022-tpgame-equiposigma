@@ -6,7 +6,7 @@ class Laser {
 	
 	const property position = game.center()
 	
-	method image() = "laser.png"
+	var property image 
 	
 	method restringeMovimiento() = false
 	
