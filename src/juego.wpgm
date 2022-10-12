@@ -17,7 +17,7 @@ program juego {
 		
 	cajas.forEach({caja => game.addVisual(caja)}
 	)
-	const jugador = new Jugador(	position = game.at(3,2),
+	const jugador3 = new Jugador(	position = game.at(3,2),
 									orientacion = derecha,
 									imagen = "goku.png",
 									imagenDerecha = "goku.png",
@@ -25,18 +25,17 @@ program juego {
 									imagenDisparo = "gokukame.png",
 									imagenDisparoIzquierda = "gokukameizq.png",
 									poder = "kamehameha.png")
-	game.addVisual(jugador)
 	
-	const jugador3 = new Jugador(   position = game.at(16,2),
-									orientacion = izquierda,
-									imagen = "supermanizq.png",
+	const jugador = new Jugador(   position = game.at(3,2),
+									orientacion = derecha,
+									imagen = "superman.png",
 									imagenDerecha = "superman.png",
 									imagenIzquierda = "supermanizq.png",
 									imagenDisparo = "supermanlaser.png",
 									imagenDisparoIzquierda = "supermanlaserizq.png",
 									poder = "visionCalorica.png")
 									
-		const jugador2 = new Jugador(   position = game.at(16,2),
+	const jugador2 = new Jugador(   position = game.at(16,2),
 									orientacion = izquierda,
 									imagen = "zenitsu.png",
 									imagenDerecha = "zenitsu.png",
@@ -44,6 +43,7 @@ program juego {
 									imagenDisparo = "vacio.png",
 									imagenDisparoIzquierda = "vacio.png",
 									poder = "rayozenitsu.png")
+	game.addVisual(jugador)
 	game.addVisual(jugador2)
 
 	game.onTick(50, "caer", {jugador.gravedad()})
@@ -52,6 +52,7 @@ program juego {
 	keyboard.d().onPressDo{jugador.moverseA(derecha)}
 	keyboard.w().onPressDo{jugador.saltar()}
 	keyboard.e().onPressDo{jugador.disparar()}
+	keyboard.s().onPressDo{jugador.dejarBomba()}
 
 	keyboard.i().onPressDo{jugador2.saltar()}
 	keyboard.l().onPressDo{jugador2.moverseA(derecha)}

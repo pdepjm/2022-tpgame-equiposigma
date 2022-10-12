@@ -10,7 +10,7 @@ class Jugador {
 	var property estaSaltando = false
 	var property estaDisparando = false
 	var property estaCayendo = false
-	
+	var property cantidadDeBombas = 3
 	var property orientacion 
 	
 	var property imagen 
@@ -34,6 +34,7 @@ class Jugador {
 	method efectoLaser()
 	{
 		game.removeVisual(self)	//Muere si el laser colisiona con el jugador
+	//	game.schedule(1000, game.stop())
 	}
 	
 	
@@ -69,6 +70,17 @@ class Jugador {
 			game.addVisual(laser)
 			game.onCollideDo(laser, {elemento => elemento.efectoLaser()}) //En vez de que los objetos colisionen con el laser, los laseres 
 			game.schedule(1000, {game.removeVisual(laser)})				  //colisionan con los objetos y le mandan al objeto el mensaje polimorfico .efectoLaser()
+	}
+	
+	method dejarBomba()
+	{
+		if(cantidadDeBombas > 0) {
+		const bomba = new Bomba(position = self.position())
+		game.addVisual(bomba)
+		game.schedule(2000, {game.onCollideDo(bomba, {elemento => bomba.explotar()})})	
+		game.schedule(2000, {game.onCollideDo(bomba, {elemento => elemento.efectoLaser()})})
+		cantidadDeBombas -= 1
+		}
 	}
 	
 	 method saltar()
