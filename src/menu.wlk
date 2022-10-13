@@ -99,7 +99,7 @@ object creditos inherits Boton(name = "creditos",
 		}
 	}
 
-object titulo inherits Boton(name = "play", 
+object titulo inherits Boton(name = "titulo", 
 	imgSelected = "./assets/menu/_rojo.png",
 	imgUnselected = "./assets/menu/_blanco.png", 
 	isSelected = false,
