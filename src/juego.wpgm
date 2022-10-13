@@ -17,7 +17,10 @@ program juego {
 		
 	cajas.forEach({caja => game.addVisual(caja)}
 	)
-	const jugador3 = new Jugador(	position = game.at(3,2),
+	
+	const cajaend = new Caja(position = game.at(0,0))
+	game.addVisual(cajaend)
+	const jugador = new Jugador(	position = game.at(3,2),
 									orientacion = derecha,
 									imagen = "goku.png",
 									imagenDerecha = "goku.png",
@@ -26,16 +29,16 @@ program juego {
 									imagenDisparoIzquierda = "gokukameizq.png",
 									poder = "kamehameha.png")
 	
-	const jugador = new Jugador(   position = game.at(3,2),
-									orientacion = derecha,
-									imagen = "superman.png",
+	const jugador2 = new Jugador(   position = game.at(16,2),
+									orientacion = izquierda,
+									imagen = "supermanizq.png",
 									imagenDerecha = "superman.png",
 									imagenIzquierda = "supermanizq.png",
 									imagenDisparo = "supermanlaser.png",
 									imagenDisparoIzquierda = "supermanlaserizq.png",
 									poder = "visionCalorica.png")
 									
-	const jugador2 = new Jugador(   position = game.at(16,2),
+	const jugador3 = new Jugador(   position = game.at(16,2),
 									orientacion = izquierda,
 									imagen = "zenitsu.png",
 									imagenDerecha = "zenitsu.png",

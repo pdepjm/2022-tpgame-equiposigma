@@ -25,7 +25,7 @@ class Jugador {
 	
 	const property poder
 	
-	method image() = imagen
+	method image() = orientacion.imagen(self)
 	
 	method cambiarImagen(nuevaImagen) {imagen = nuevaImagen}
 	
@@ -34,7 +34,7 @@ class Jugador {
 	method efectoLaser()
 	{
 		game.removeVisual(self)	//Muere si el laser colisiona con el jugador
-	//	game.schedule(1000, game.stop())
+		game.schedule(6000, {game.stop()})
 	}
 	
 	
@@ -46,19 +46,22 @@ class Jugador {
 		
 		if (puedeAvanzar && !self.estaDisparando()) //El jugador no puede moverse si hay un objeto o si esta disparando
 		{
-			position = direccion.posicionSiguiente(position)
-			direccion.modificarOrientacion(self) 
+			position = direccion.posicionSiguiente(position) 
+			orientacion = direccion
 			
 		}	
 	}
+	
 	
 	method disparar()
 	{
 		if ( self.orientacion() === derecha ) {self.cambiarImagen(imagenDisparo)}
 		else {self.cambiarImagen(imagenDisparoIzquierda)}
 		self.estaDisparando(true)
+		
 		const lineaDeTiro = orientacion.lineaDeTiro(self.position())
 		lineaDeTiro.forEach({posicion => self.dispararLaserEn(posicion)})
+		
 		if ( self.orientacion() === derecha) {game.schedule(1000, {self.cambiarImagen(imagenDerecha)})}
 		else {game.schedule(1000, {self.cambiarImagen(imagenIzquierda)})}  //Una vez que pasa un segundo, vuelvo a la imagen de siempre y
 		game.schedule(1000, {estaDisparando = false})      		           //habilito el movimiento de nuevo
@@ -77,8 +80,7 @@ class Jugador {
 		if(cantidadDeBombas > 0) {
 		const bomba = new Bomba(position = self.position())
 		game.addVisual(bomba)
-		game.schedule(2000, {game.onCollideDo(bomba, {elemento => bomba.explotar()})})	
-		game.schedule(2000, {game.onCollideDo(bomba, {elemento => elemento.efectoLaser()})})
+		game.schedule(2000, {game.onCollideDo(bomba, {elemento => bomba.explotar();elemento.efectoLaser()})})	
 		cantidadDeBombas -= 1
 		}
 	}
@@ -88,14 +90,18 @@ class Jugador {
 		estaCayendo = false } 
 		if(!estaCayendo)
 		{
-			estaSaltando = true
 			estaCayendo = true
-			if (estaSaltando) {
+			
+			
+			estaSaltando = true
+			
+				
+				
+				
 			self.moverseA(arriba)
 			game.onTick(50, "saltar" , {self.moverseA(arriba)})
 			game.schedule(450, {estaSaltando = false})
 			game.schedule(500, {game.removeTickEvent("saltar")})
-		}
 	}
 	}
 	method gravedad()
