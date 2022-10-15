@@ -1,5 +1,6 @@
 import cajas.*
 import wollok.game.*
+import levels.*
 
 class Level {
 	
@@ -16,7 +17,6 @@ class Level {
 		// self.cargarFondo("./assets/map/" + self.nombreNivel() + ".png")
 		// jugador.position(spawnPersonaje1)
 		self.renderizar()
-		
 	}
 	
 	/* method cargarFondo(imagen){

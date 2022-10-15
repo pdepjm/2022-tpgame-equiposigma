@@ -1,9 +1,9 @@
 import wollok.game.*
-import jugadores.*
+
 
 class Caja{
 	var property position
-	method image() = "caja.png"
+	method image() = "pasto.png"
 	
 	method restringeMovimiento() {return true}
 	

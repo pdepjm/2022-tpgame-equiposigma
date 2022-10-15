@@ -8,29 +8,16 @@ import levels.*
 
 
 program juego {
+
 	game.width(20)
+
 	game.height(15)
 
 	game.title("Juego Base")
-	
-	/*const cajas = [caja1, caja2, caja3, caja4, caja5, caja6, caja7, caja8, caja9, caja10, caja11, caja12, caja13, caja14,
-		caja15, caja16, caja17, caja18, caja19, caja40, caja41, caja42, caja43, caja44, caja45, caja46, caja47, caja48]
-		
-	cajas.forEach({caja => game.addVisual(caja)}
-	)*/
 
-									
-	/*const jugador2 = new Jugador(   position = game.at(16,2),
-									orientacion = izquierda,
-									imagen = "zenitsu.png",
-									imagenDerecha = "zenitsu.png",
-									imagenIzquierda = "zenitsu.png",
-									imagenDisparo = "vacio.png",
-									imagenDisparoIzquierda = "vacio.png",
-									poder = "rayozenitsu.png")*/
-	
-	
 	primerNivel.renderizar()
+
 	game.start()
+	
 	
 }

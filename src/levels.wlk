@@ -15,7 +15,8 @@ object primerNivel inherits Level {
 									imagenIzquierda = "gokuizq.png",
 									imagenDisparo = "gokukame.png",
 									imagenDisparoIzquierda = "gokukameizq.png",
-									poder = "kamehameha.png")
+									poder = "kamehameha.png",
+									sonidoPoder = "kamehameha.mp3")
 	
 	const jugador2 = new Jugador(   position = game.at(16,2),
 									orientacion = izquierda,
@@ -24,7 +25,8 @@ object primerNivel inherits Level {
 									imagenIzquierda = "supermanizq.png",
 									imagenDisparo = "supermanlaser.png",
 									imagenDisparoIzquierda = "supermanlaserizq.png",
-									poder = "visionCalorica.png")
+									poder = "visionCalorica.png", 
+									sonidoPoder = "rayosx.mp3")
 	
 	method anadirPersonajesYControles()
 	{
@@ -36,13 +38,14 @@ object primerNivel inherits Level {
 		keyboard.a().onPressDo{jugador.moverseA(izquierda)}
 		keyboard.d().onPressDo{jugador.moverseA(derecha)}
 		keyboard.w().onPressDo{jugador.saltar()}
-		keyboard.e().onPressDo{jugador.disparar()}
+		keyboard.e().onPressDo{jugador.disparar(); game.sound(jugador.sonidoPoder()).play()}
 		keyboard.s().onPressDo{jugador.dejarBomba()}
 
 		keyboard.i().onPressDo{jugador2.saltar()}
 		keyboard.l().onPressDo{jugador2.moverseA(derecha)}
 		keyboard.j().onPressDo{jugador2.moverseA(izquierda)}
-		keyboard.p().onPressDo{jugador2.disparar()}	
+		keyboard.p().onPressDo{jugador2.disparar(); game.sound(jugador2.sonidoPoder()).play()}
+		keyboard.k().onPressDo{jugador.dejarBomba()}	
 	}
 	override method nombreNivel() = "nivelUno"
 	
@@ -57,7 +60,10 @@ object primerNivel inherits Level {
 		self.anadirPersonajesYControles()
 		game.boardGround("fondo.png")
 		render.render(soportes,piso)
-		
+		game.schedule(100, {game.sound("linkinPark.mp3").play()})
 	}
 
 }
+
+
+

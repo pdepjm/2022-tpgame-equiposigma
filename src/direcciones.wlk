@@ -2,7 +2,6 @@ import wollok.game.*
 import jugadorClase.*
 import cajas.*
 
-
 //Delego el buscar una posicion en una direccion en una clase
 //Obtengo la linea de disparo del laser en una direccion
 

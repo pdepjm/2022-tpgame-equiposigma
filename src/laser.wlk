@@ -6,6 +6,8 @@ class Laser {
 	
 	const property position 
 	
+	const property sonido 
+	
 	var property image 
 	
 	method restringeMovimiento() = false
@@ -16,9 +18,13 @@ class Laser {
 class Bomba {
 	const property position
 	
-	var property image = "vacio.png"
+	var property image = "bomba.png"
 	
 	method restringeMovimiento() = false
+	
+	method esconder() {
+		image = "vacio.png"
+	}
 	
 	method explotar() {
 		
