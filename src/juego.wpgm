@@ -3,7 +3,8 @@ import cajas.*
 import jugadorClase.*
 import direcciones.*
 import laser.*
-
+import level.*
+import levels.*
 
 
 program juego {
@@ -12,56 +13,24 @@ program juego {
 
 	game.title("Juego Base")
 	
-	const cajas = [caja1, caja2, caja3, caja4, caja5, caja6, caja7, caja8, caja9, caja10, caja11, caja12, caja13, caja14,
+	/*const cajas = [caja1, caja2, caja3, caja4, caja5, caja6, caja7, caja8, caja9, caja10, caja11, caja12, caja13, caja14,
 		caja15, caja16, caja17, caja18, caja19, caja40, caja41, caja42, caja43, caja44, caja45, caja46, caja47, caja48]
 		
 	cajas.forEach({caja => game.addVisual(caja)}
-	)
-	
-	const cajaend = new Caja(position = game.at(0,0))
-	game.addVisual(cajaend)
-	const jugador = new Jugador(	position = game.at(3,2),
-									orientacion = derecha,
-									imagen = "goku.png",
-									imagenDerecha = "goku.png",
-									imagenIzquierda = "gokuizq.png",
-									imagenDisparo = "gokukame.png",
-									imagenDisparoIzquierda = "gokukameizq.png",
-									poder = "kamehameha.png")
-	
-	const jugador2 = new Jugador(   position = game.at(16,2),
-									orientacion = izquierda,
-									imagen = "supermanizq.png",
-									imagenDerecha = "superman.png",
-									imagenIzquierda = "supermanizq.png",
-									imagenDisparo = "supermanlaser.png",
-									imagenDisparoIzquierda = "supermanlaserizq.png",
-									poder = "visionCalorica.png")
+	)*/
+
 									
-	const jugador3 = new Jugador(   position = game.at(16,2),
+	/*const jugador2 = new Jugador(   position = game.at(16,2),
 									orientacion = izquierda,
 									imagen = "zenitsu.png",
 									imagenDerecha = "zenitsu.png",
 									imagenIzquierda = "zenitsu.png",
 									imagenDisparo = "vacio.png",
 									imagenDisparoIzquierda = "vacio.png",
-									poder = "rayozenitsu.png")
-	game.addVisual(jugador)
-	game.addVisual(jugador2)
-
-	game.onTick(50, "caer", {jugador.gravedad()})
-	game.onTick(50, "caer", {jugador2.gravedad()})
-	keyboard.a().onPressDo{jugador.moverseA(izquierda)}
-	keyboard.d().onPressDo{jugador.moverseA(derecha)}
-	keyboard.w().onPressDo{jugador.saltar()}
-	keyboard.e().onPressDo{jugador.disparar()}
-	keyboard.s().onPressDo{jugador.dejarBomba()}
-
-	keyboard.i().onPressDo{jugador2.saltar()}
-	keyboard.l().onPressDo{jugador2.moverseA(derecha)}
-	keyboard.j().onPressDo{jugador2.moverseA(izquierda)}
-	keyboard.p().onPressDo{jugador2.disparar()}	
+									poder = "rayozenitsu.png")*/
 	
+	
+	primerNivel.renderizar()
 	game.start()
 	
 }

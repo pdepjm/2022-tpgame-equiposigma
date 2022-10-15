@@ -9,7 +9,11 @@ import cajas.*
 object izquierda {
 	method posicionSiguiente(posicionActual) = posicionActual.left(1)
 	
-	method imagen(jugador) = jugador.imagenIzquierda()
+	method modificarOrientacion(jugador)
+	{
+		jugador.cambiarImagen(jugador.imagenIzquierda())
+		jugador.orientacion(self)
+	}
 		
 	method hayBloqueoEnPosicion(posicion)
 	{
@@ -19,7 +23,7 @@ object izquierda {
 	method lineaDeTiro(posicion)
 	{
 		const valorDeY = posicion.y()
-		const valoresDeX = 0..(game.width())
+		const valoresDeX = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 		const xALaIzquierda = valoresDeX.filter({x => x < posicion.x()})
 		var lineaDeTiro = []
 		xALaIzquierda.forEach({x => lineaDeTiro.add(game.at(x, valorDeY))})
@@ -38,13 +42,17 @@ object izquierda {
 object derecha {
 	method posicionSiguiente(posicionActual) = posicionActual.right(1) 
 	
-	method imagen(jugador) = jugador.imagenDerecha()
+	method modificarOrientacion(jugador)
+	{
+		jugador.cambiarImagen(jugador.imagenDerecha())
+		jugador.orientacion(self)
+	}
 	
 	
 	method lineaDeTiro(posicion)
 	{
 		const valorDeY = posicion.y()
-		const valoresDeX = 0..(game.width())
+		const valoresDeX = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 		const xALaDerecha = valoresDeX.filter({x => x > posicion.x()})
 		var lineaDeTiro = []
 		xALaDerecha.forEach({x => lineaDeTiro.add(game.at(x, valorDeY))})
@@ -63,12 +71,11 @@ object derecha {
 object arriba {
 	method posicionSiguiente(posicionActual) = posicionActual.up(1)
 	
-	method imagen(jugador) {}
+	method modificarOrientacion(jugador){} 
 }
 
 object abajo {
 	method posicionSiguiente(posicionActual) = posicionActual.down(1) 
 	
-	method imagen(jugador){}
+	method modificarOrientacion(jugador){}
 }
-
