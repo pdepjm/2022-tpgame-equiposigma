@@ -48,7 +48,7 @@ object juego{
 		game.width(20)
 		game.height(15)
 		game.cellSize(50)
-		primerNivel.renderizar()
+		segundoNivel.renderizar()
 	}
 	
 

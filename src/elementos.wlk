@@ -2,15 +2,19 @@ import wollok.game.*
 
 // Materiales
 
-class Material{
+class Caja{
 	var property position
 	method image() = ""
 	method restringeMovimiento() {return true}
 	method efectoLaser() {}
 }
 
-class Caja inherits Material{
+class Ladrillo inherits Caja{
 	override method image() = "ladrillo.png"
+}
+
+class Pasto inherits Caja{
+	override method image() = "pasto.png"
 }
 
 
@@ -36,9 +40,15 @@ class Soporte{
 class SoporteLadrillo inherits Soporte{
 	
 	override method crearClase(n,m){
-		return (new Caja(position = game.at(n,m)))
+		return (new Ladrillo(position = game.at(n,m)))
 	}
 }
 
+class SoportePasto inherits Soporte{
+	
+	override method crearClase(n,m){
+		return (new Pasto(position = game.at(n,m)))
+	}
+}
 
 	
