@@ -3,7 +3,8 @@ import wollok.game.*
 
 class Level {
 	
-	var property piso = []
+	// falta poner estos metodos: donde van a spawnear los pj, metodo para cargar fondo y un atributo q vaya cargando quien va ganando 
+	
 	// var property spawnPersonaje1 = []
 	
 	method nombreNivel() = ""
@@ -11,26 +12,19 @@ class Level {
 	method renderizar()
 	
 	method cargarNivel(jugador){
-		// [fila,[Columnas]]
 		// self.nuevoSpawnPersonajes()
 		// self.cargarFondo("./assets/map/" + self.nombreNivel() + ".png")
 		// jugador.position(spawnPersonaje1)
 		self.renderizar()
 		
 	}
-	
-	/* method cargarFondo(imagen){
-		if(!game.hasVisual(imagen)){
-			game.addVisual(imagen)
-		}
-	} */ 	
+	 	
 }
 
 object render{
-	method render(listaSoportes){
+	method renderizar(listaSoportes){
 		listaSoportes.forEach( { soporte => 
 			soporte.render()
 		})
-		// range.forEach({m => typeTile.add( new DestroyableTile(position = game.at(nPosition , m)))})
 	} 
 }

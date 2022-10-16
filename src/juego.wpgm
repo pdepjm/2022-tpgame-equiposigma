@@ -1,23 +1,9 @@
-import wollok.game.*
-import cajas.*
-import jugadorClase.*
-import direcciones.*
-import laser.*
-import level.*
-import levels.*
+import juegoManager.*
 
 
 program juego {
 
-	game.width(20)
-
-	game.height(15)
-
-	game.title("Juego Base")
-
-	primerNivel.renderizar()
-
-	game.start()
+	juego.iniciar()
 	
 	
 }

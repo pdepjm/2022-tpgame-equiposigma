@@ -26,7 +26,7 @@ class Jugador {
 	
 	const property poder
 	
-	const property sonidoPoder
+	const property sonidoPoder = ""
 	
 	method image() = imagen
 	
