@@ -1,6 +1,5 @@
-import cajas.*
+import elementos.*
 import wollok.game.*
-import levels.*
 
 class Level {
 	
@@ -17,6 +16,7 @@ class Level {
 		// self.cargarFondo("./assets/map/" + self.nombreNivel() + ".png")
 		// jugador.position(spawnPersonaje1)
 		self.renderizar()
+		
 	}
 	
 	/* method cargarFondo(imagen){
@@ -27,13 +27,10 @@ class Level {
 }
 
 object render{
-	method render(listaSoportes,piso){
+	method render(listaSoportes){
 		listaSoportes.forEach( { soporte => 
-			const fila = soporte.get(0)
-			const columna = soporte.get(1)
-			columna.forEach({n => piso.add( new Caja(position = game.at(n,fila)))})
-		} )
-		piso.forEach({n => game.addVisual(n)})
+			soporte.render()
+		})
 		// range.forEach({m => typeTile.add( new DestroyableTile(position = game.at(nPosition , m)))})
 	} 
 }
