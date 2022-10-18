@@ -10,12 +10,14 @@ object juego{
 		self.agregarPersonajes()
 		self.configurarTeclas()
 		self.configurarAcciones()
+		game.schedule(100, {game.sound("linkinPark.mp3").play()})
 		game.start()
 	}
 	
 	method configurarTeclas(){
 		game.onTick(50, "caer", {jugador.gravedad()})
 		game.onTick(50, "caer", {jugador2.gravedad()})
+		
 		keyboard.a().onPressDo{jugador.moverseA(izquierda)}
 		keyboard.d().onPressDo{jugador.moverseA(derecha)}
 		keyboard.w().onPressDo{jugador.saltar()}

@@ -26,7 +26,7 @@ class Jugador {
 	
 	const property poder
 	
-	const property sonidoPoder = ""
+	const property sonidoPoder 
 	
 	method image() = imagen
 	
@@ -65,6 +65,7 @@ class Jugador {
 		if ( self.orientacion() === derecha) {game.schedule(1000, {self.cambiarImagen(imagenDerecha)})}
 		else {game.schedule(1000, {self.cambiarImagen(imagenIzquierda)})}  //Una vez que pasa un segundo, vuelvo a la imagen de siempre y
 		game.schedule(1000, {estaDisparando = false})      		           //habilito el movimiento de nuevo
+		game.sound(self.sonidoPoder()).play()
 	}
 	
 	method dispararLaserEn(posicion)
