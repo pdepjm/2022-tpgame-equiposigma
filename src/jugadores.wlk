@@ -22,12 +22,15 @@ import direcciones.*
 									poder = "visionCalorica.png",
 									sonidoPoder = "rayosX.mp3")
 									
-/*	const jugador3 = new Jugador(   position = game.at(16,2),
+ const jugador3 = new Jugador(   position = game.at(16,2),
 									orientacion = izquierda,
 									imagen = "zenitsu.png",
 									imagenDerecha = "zenitsu.png",
 									imagenIzquierda = "zenitsu.png",
 									imagenDisparo = "vacio.png",
 									imagenDisparoIzquierda = "vacio.png",
-									poder = "rayozenitsu.png") */
+									poder = "rayozenitsu.png",
+									sonidoPoder= "rayosX.mp3") 
+									
+									
 		

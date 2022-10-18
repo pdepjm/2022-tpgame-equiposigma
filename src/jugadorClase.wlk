@@ -34,6 +34,8 @@ class Jugador {
 	
 	method restringeMovimiento() {return false}
 	
+	method posInicial(valor)= if(valor==1)position==game.at(3,2) else position==game.at(16,2) 
+	
 	method efectoLaser()
 	{
 		game.removeVisual(self)	//Muere si el laser colisiona con el jugador
