@@ -28,6 +28,7 @@ object juego{
 		keyboard.l().onPressDo{jugador2.moverseA(derecha)}
 		keyboard.j().onPressDo{jugador2.moverseA(izquierda)}
 		keyboard.p().onPressDo{jugador2.disparar()} 
+		keyboard.k().onPressDo{jugador2.dejarBomba()}
 	}
 	
 	method agregarPersonajes() {

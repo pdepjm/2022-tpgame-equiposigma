@@ -83,7 +83,7 @@ class Jugador {
 		if(cantidadDeBombas > 0) {
 		const bomba = new Bomba(position = self.position())
 		game.addVisual(bomba)
-		game.schedule(2000, {bomba.esconder()})
+		game.schedule(1750, {bomba.esconder()})
 		game.schedule(2000, {game.onCollideDo(bomba, {elemento => bomba.explotar()})})	
 		game.schedule(2000, {game.onCollideDo(bomba, {elemento => elemento.efectoLaser()})})
 		cantidadDeBombas -= 1
