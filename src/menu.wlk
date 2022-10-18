@@ -3,7 +3,7 @@ import wollok.game.*
 object menu{
 	
 	var property pos=0 //la posiucion de lo que queiro elegir dentro de la lista
-	const opciones=[/*play,controles,creditos*/]
+	const opciones=[play,controles,creditos]
 	var property enPantalla  = null 
 	
 	method seleccionarOpcion() = opciones.get(pos)
@@ -71,7 +71,7 @@ object play inherits Boton(name = "play",
 	)
 {
 	method enter(){
-		
+		//ejecutar manajer de personajes 
 	}
 	
 	
@@ -84,8 +84,15 @@ object controles inherits Boton(name = "controles",
 	position = game.at(3,5) 
 	){
 		method enter(){
+			//game.addVisual(/*imagen de controles)*/) 
 			
 		}
+		
+		
+		method volver(){
+			//game.removeVisual()
+		} 
+		
 	}
 
 object creditos inherits Boton(name = "creditos", 
@@ -95,18 +102,17 @@ object creditos inherits Boton(name = "creditos",
 	position = game.at(3,5) 
 	){
 		method enter(){
-			
-		}
-	}
-
-object titulo inherits Boton(name = "titulo", 
-	imgSelected = "./assets/menu/_rojo.png",
-	imgUnselected = "./assets/menu/_blanco.png", 
-	isSelected = false,
-	position = game.at(3,5) 
-	){
-		method enter(){
+			//game.addVisual(/*imagen de controles)*/) 
 			
 		}
 		
+		
+		method volver(){
+			//game.removeVisual()
+		} 
 	}
+
+object titulo{
+    const property position = game.at(2, 11)    
+    const property image = "./assets/menu/DINOBOOM.png"                  
+}
