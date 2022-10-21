@@ -17,8 +17,21 @@ class Pasto inherits Caja{
 	override method image() = "pasto.png"
 }
 
+class Concreto1 inherits Caja{
+	override method image() = "concreteBlock.png"
+}
+
+class Concreto2 inherits Caja{
+	override method image() = "concreteBlock2.png"
+}
+
+class Ventana inherits Caja{
+	override method image() = "window.png"
+}
+
 
 // Soportes
+
 
 class Soporte{
 	const property columna = []
@@ -50,5 +63,31 @@ class SoportePasto inherits Soporte{
 		return (new Pasto(position = game.at(n,m)))
 	}
 }
+
+class SoporteConcreto1 inherits Soporte{
+	
+	override method crearClase(n,m){
+		return (new Concreto1(position = game.at(n,m)))
+	}
+}
+
+class SoporteConcreto2 inherits Soporte{
+	
+	override method crearClase(n,m){
+		return (new Concreto2(position = game.at(n,m)))
+	}
+}  
+
+class SoporteVentana inherits Soporte{
+	
+	override method crearClase(n,m){
+		return (new Ventana(position = game.at(n,m)))
+	}
+}  
+
+
+
+
+
 
 	
