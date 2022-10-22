@@ -2,10 +2,13 @@
 import partida.*
 import personajes.*
 import wollok.game.*
+import enfrentamiento.*
+import levels.*
 
 program juego {
 
-	const partida = new Partida(personaje1 = goku, personaje2 = superman)
-	partida.jugar()
+	const enfrentamiento = new Enfrentamiento(personaje1 = goku, personaje2 = superman, nivel = primerNivel)
+	enfrentamiento.jugar()
+	game.start()
 		
 }
