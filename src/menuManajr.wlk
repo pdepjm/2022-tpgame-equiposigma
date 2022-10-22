@@ -1,7 +1,7 @@
-
+/*
 import wollok.game.*
 import jugadorClase.*
-import jugadores.*
+import personajes.*
 import menu.*
 
 object pantallaSeleccionPersonaje{
@@ -63,7 +63,5 @@ class selectorPersonaje{
 	method confirmar(){
 		
 	}
-	
-	
-	
-}
+		
+}*/

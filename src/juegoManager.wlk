@@ -1,5 +1,5 @@
-import wollok.game.*
-import jugadores.*
+/*import wollok.game.*
+import personajes.*
 import direcciones.*
 import levels.*
 
@@ -7,10 +7,10 @@ object juego{
 	
 	method iniciar() {
 		self.hacerConfiguracionInicial()
-		self.agregarPersonajes()
+		//self.agregarPersonajes()
 		self.configurarTeclas()
-		self.configurarAcciones()
-		game.schedule(100, {game.sound("linkinPark.mp3").play()})
+		//self.configurarAcciones()
+		//game.schedule(100, {game.sound("linkinPark.mp3").play()})
 		game.start()
 	}
 	
@@ -56,4 +56,4 @@ object juego{
 	
 
 	
-}
+}*/

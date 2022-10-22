@@ -1,8 +1,11 @@
-import juegoManager.*
-
+//import juegoManager.*
+import partida.*
+import personajes.*
+import wollok.game.*
 
 program juego {
 
-	juego.iniciar()
+	const partida = new Partida(personaje1 = goku, personaje2 = superman)
+	partida.jugar()
 		
 }

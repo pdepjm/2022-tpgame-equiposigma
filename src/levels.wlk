@@ -23,7 +23,7 @@ object primerNivel inherits Level {
 		
 		const soporte= [soporte1,soporte2,soporte3,soporte4,soporte5,soporte6]
 		
-		game.boardGround("aot2.png")
+		//game.boardGround("aot2.png")
 		render.renderizar(soporte)
 		
 	}

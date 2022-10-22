@@ -7,6 +7,8 @@ import levels.*
 
 class Jugador {
 	
+	var property muerto = false
+	
 	var property position //= game.at(3,2)
 	
 	var property estaSaltando = false
@@ -15,7 +17,7 @@ class Jugador {
 	var property cantidadDeBombas = 3
 	var property orientacion 
 	var property imagen 
-	
+	const property nombre
 	const property imagenIzquierda 				//Necesito esta variable definida en la clase jugador, asi puedo modificar la imagen de la orientacion de una manera no-hardcodeada
 												// y modificarlas desde los objetos direccion. Ademas, puedo instanciar jugadores y cambiarles las imagenes
 	const property imagenDerecha 
@@ -38,6 +40,7 @@ class Jugador {
 	
 	method efectoLaser()
 	{
+		muerto = true
 		game.removeVisual(self)	//Muere si el laser colisiona con el jugador
 		//game.schedule(2000, {game.stop()})
 	}
