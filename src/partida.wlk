@@ -24,6 +24,12 @@ class Partida{
 	var terminoTercerEnfrentamiento = false
 	
 	
+	method cuantificarVictoria(enfrentamiento)
+	{
+		if (enfrentamiento.ganador() === personaje1) {victoriasPersonaje1++}
+		if (enfrentamiento.ganador() === personaje2) {victoriasPersonaje2++}
+	}
+	
 	method jugarPrimerNivel(){
 		
 		const enfrentamiento = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel)
@@ -33,11 +39,12 @@ class Partida{
 		 game.onTick(100, "actualizo si se termino el enfrentamiento", {terminoPrimerEnfrentamiento = enfrentamiento.flagTerminarEnfrentamiento()})
 		 
 		 //Si el primer enfrentamiento se terminó, paso al segundo nivel
-		 game.onTick(110, "pasar 2do nivel", {if(terminoPrimerEnfrentamiento){self.jugarSegundoNivel(); game.removeTickEvent("pasar 2do nivel")}})
+		 game.onTick(110, "pasar 2do nivel", {if(terminoPrimerEnfrentamiento){self.cuantificarVictoria(enfrentamiento); self.jugarSegundoNivel()/*game.removeTickEvent("pasar 2do nivel")*/}})
 	}
 	
 	method jugarSegundoNivel()
 	{
+		game.removeTickEvent("pasar 2do nivel")
 		game.clear()
 		personaje1.muerto(false)
 		personaje2.muerto(false)
@@ -46,20 +53,43 @@ class Partida{
 		
 		game.onTick(100, "actualizo finalizacion 2do enfrentamiento", {terminoSegundoEnfrentamiento = enfrentamiento2.flagTerminarEnfrentamiento()})
 		
-		game.onTick(110, "pasar 3er nivel", {if(terminoSegundoEnfrentamiento){self.jugarTercerNivel(); game.removeTickEvent("pasar 3er nivel")}} /*game.removeTickEvent("pasar 3er nivel")}*/)
+		game.onTick(110, "pasar 3er nivel", {if(terminoSegundoEnfrentamiento){self.cuantificarVictoria(enfrentamiento2);self.jugarTercerNivel();  game.removeTickEvent("pasar 3er nivel")}} /*game.removeTickEvent("pasar 3er nivel")}*/)
 		
 	}
 	
 	method jugarTercerNivel()
 	{
+		game.removeTickEvent("pasar 3er nivel")
+		game.clear()
 		personaje1.muerto(false)
 		personaje2.muerto(false)
-		game.clear()
 		const enfrentamiento3 = new Enfrentamiento(personaje1 = personaje1, personaje2 = personaje2, nivel = nivel3)
 		enfrentamiento3.jugar()
 		
 		game.onTick(100, "actualizo finalizacion 3er enfrentamiento", {terminoTercerEnfrentamiento = enfrentamiento3.flagTerminarEnfrentamiento()})
-		game.onTick(110, "pasar 3er nivel", {if(terminoTercerEnfrentamiento){game.removeTickEvent("pasar 3er nivel")}})
+		game.onTick(110, "pasar 3er nivel", {if(terminoTercerEnfrentamiento){ game.clear()/*self.cuantificarVictoria(enfrentamiento3); self.mostrarGanador(); game.removeTickEvent("pasar 3er nivel")*/}})
+	}
+	
+	method mostrarGanador()
+	{
+		if(victoriasPersonaje1 > victoriasPersonaje2)
+		{
+			const texto = new TextoVictoria(ganador = personaje1)
+			game.addVisual(texto)
+		}
+		else 
+		{
+			const texto = new TextoVictoria(ganador = personaje2)
+			game.addVisual(texto)
+		}
+		
 	}
 }
 	
+	
+class TextoVictoria{
+	const ganador
+	var property position = game.center()
+	method text() = ganador.nombre() + " wins!"
+	
+}

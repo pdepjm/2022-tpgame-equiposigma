@@ -4,6 +4,7 @@ import personajes.*
 import wollok.game.*
 import enfrentamiento.*
 import levels.*
+import menuValen.*
 
 program juego {
 
@@ -12,7 +13,7 @@ program juego {
 	
 	const partida = new Partida(personaje1 = goku, personaje2 = superman
 	)
-	partida.jugarPrimerNivel()
+	menu.ejecutarMenu()
 	game.start()
 		
 }

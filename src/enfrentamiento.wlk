@@ -21,7 +21,7 @@ class Enfrentamiento {
 				
 		game.onTick(100, "chequear si murio el jugador 1", {self.murioJugador1()})
 		game.onTick(100,"chequear si murio el jugador 2", {self.murioJugador2()})
-		game.onTick(100,"chequear si las condiciones estan dadas para terminar la partida", {self.terminarEnfrentamiento()})	
+		game.onTick(110,"chequear si las condiciones estan dadas para terminar la partida", {self.terminarEnfrentamiento()})	
 	}
 	
 	method murioJugador1()
