@@ -17,6 +17,7 @@ class Partida{
 	
 	const nivel = primerNivel
 	const nivel2= segundoNivel
+	const nivel3 = tercerNivel
 	
 	var terminoPrimerEnfrentamiento = false
 	var terminoSegundoEnfrentamiento = false
@@ -32,149 +33,33 @@ class Partida{
 		 game.onTick(100, "actualizo si se termino el enfrentamiento", {terminoPrimerEnfrentamiento = enfrentamiento.flagTerminarEnfrentamiento()})
 		 
 		 //Si el primer enfrentamiento se terminó, paso al segundo nivel
-		 game.onTick(110, "pasar 2do nivel", {if(terminoPrimerEnfrentamiento){self.jugarSegundoNivel()}; game.removeTickEvent("pasar 2do nivel")})
+		 game.onTick(110, "pasar 2do nivel", {if(terminoPrimerEnfrentamiento){self.jugarSegundoNivel(); game.removeTickEvent("pasar 2do nivel")}})
 	}
 	
 	method jugarSegundoNivel()
 	{
 		game.clear()
+		personaje1.muerto(false)
+		personaje2.muerto(false)
 		const enfrentamiento2 = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel2)
 		enfrentamiento2.jugar()
 		
-	}
-}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	
-
-	const niveles = [primerNivel, segundoNivel, tercerNivel]
-	
-	method jugar(){
-		niveles.forEach({nivel => self.jugarUnNivel(nivel)})
+		game.onTick(100, "actualizo finalizacion 2do enfrentamiento", {terminoSegundoEnfrentamiento = enfrentamiento2.flagTerminarEnfrentamiento()})
+		
+		game.onTick(110, "pasar 3er nivel", {if(terminoSegundoEnfrentamiento){self.jugarTercerNivel(); game.removeTickEvent("pasar 3er nivel")}} /*game.removeTickEvent("pasar 3er nivel")}*/)
 		
 	}
 	
-	method jugarUnNivel(nivel)
+	method jugarTercerNivel()
 	{
-		const enfrentamiento = new Enfrentamiento(personaje1 = personaje1, personaje2 = personaje2, nivel = nivel)
-		enfrentamiento.jugar()
-		
-		game.onTick(100, "chequeo si alguien gano", {self.sacarGanador(enfrentamiento)})
-		//Saco al ganador una vez que el enfrentamiento termino
-			
-	}
-	
-	method sacarGanador(enfrentamiento)
-	{
-		if (enfrentamiento.flagTerminarEnfrentamiento())
-		{
-				ganador = enfrentamiento.ganador()
-				
-				if (ganador === personaje1){victoriasPersonaje1++}
-				else{victoriasPersonaje2}
-				game.removeTickEvent("chequeo si alguien gano")
-				
-		}
-	}
-	method mostrarGanador(ganadorEn)
-	{
-		
-		const texto = new TextoGanador(ganador = ganadorEn)
-		game.addVisual(texto)
-		//game.schedule(5000, game.clear())
-	}
-
-	
-}
-
-class TextoGanador{
-	const ganador
-	var property position = game.at(10,12)
-	method text() = ganador.nombre() + " gano"
-}
-
-
-
-
-/*class Partida{
-	
-	const personaje1
-	const personaje2
-	
-	var victoriasJugador1 = 0
-	var victoriasJugador2 = 0
-	var flagPasarDeEnfrentamiento = false
-	 
-	method jugar()
-	{
-		self.primerEnfrentamiento()
-		game.title("juegoSigma")
-		game.width(20)
-		game.height(15)
-		game.cellSize(50)
-		game.start()
-		game.onTick(10, "chequear si hay que pasar de enfrentamiento", {self.mostrarResultados()})
-	} 
-	
-	method primerEnfrentamiento()
-	{
-		flagPasarDeEnfrentamiento = false
-		const enfrentamiento = new Enfrentamiento(personaje1 = personaje1, personaje2 = personaje2, nivel = primerNivel)
-		enfrentamiento.jugar()
-		game.onTick(100, "me fijo si alguien gano", {self.cuantificarEnfrentamiento(enfrentamiento)})
-	}
-	
-	method cuantificarEnfrentamiento(enfrentamiento)
-	{
-		if (enfrentamiento.ganador()===(personaje1)) {victoriasJugador1++; flagPasarDeEnfrentamiento = true; game.removeTickEvent("me fijo si alguien gano")}
-		if (enfrentamiento.ganador()===(personaje2)) {victoriasJugador2++; flagPasarDeEnfrentamiento = true; game.removeTickEvent("me fijo si alguien gano")}
-	}
-	
-	method mostrarResultados()
-	{
-		if(flagPasarDeEnfrentamiento)
-		{
-			if (victoriasJugador1 > victoriasJugador2)
-			{
-				const baner = new BannerVictoria(ganador = "personaje 1")
-				game.addVisual(baner)
-			}
-			else
-			{
-				const baner = new BannerVictoria(ganador = "personaje 2")
-				game.addVisual(baner)			
-			}
-			game.schedule(500, {self.segundoEnfrentamiento()})
-			game.schedule(500, flagPasarDeEnfrentamiento = false)
-		}
-	}
-	method segundoEnfrentamiento()
-	{
+		personaje1.muerto(false)
+		personaje2.muerto(false)
 		game.clear()
-		const enfrentamiento = new Enfrentamiento(personaje1 = personaje1, personaje2 = personaje2, nivel = tercerNivel)
-		enfrentamiento.jugar()
-		//game.addVisual(ganadorEnfrentamiento)
-		if (enfrentamiento.ganador()===(personaje1)) {victoriasJugador1++; flagPasarDeEnfrentamiento = true}
-		if (enfrentamiento.ganador()===(personaje2)) {victoriasJugador2++; flagPasarDeEnfrentamiento = true}
+		const enfrentamiento3 = new Enfrentamiento(personaje1 = personaje1, personaje2 = personaje2, nivel = nivel3)
+		enfrentamiento3.jugar()
+		
+		game.onTick(100, "actualizo finalizacion 3er enfrentamiento", {terminoTercerEnfrentamiento = enfrentamiento3.flagTerminarEnfrentamiento()})
+		game.onTick(110, "pasar 3er nivel", {if(terminoTercerEnfrentamiento){game.removeTickEvent("pasar 3er nivel")}})
 	}
-	
 }
-
-
-class BannerVictoria{
-	const ganador
-	var property position = game.center()
-	method text() = "gano el " + ganador
-}*/
+	

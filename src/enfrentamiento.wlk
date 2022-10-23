@@ -18,16 +18,10 @@ class Enfrentamiento {
 		self.configurarTeclas()
 		game.addVisual(personaje1)
 		game.addVisual(personaje2)
-		
-		const texto1 = new TextoVivo(jugador = personaje1)
-		const texto2 = new TextoVivo(jugador = personaje2, position = game.at(12,10) )
-		game.addVisual(texto1)
-		game.addVisual(texto2)
-		
+				
 		game.onTick(100, "chequear si murio el jugador 1", {self.murioJugador1()})
 		game.onTick(100,"chequear si murio el jugador 2", {self.murioJugador2()})
-		game.onTick(100,"chequear si las condiciones estan dadas para terminar la partida", {self.terminarEnfrentamiento()})
-		//return ganador		
+		game.onTick(100,"chequear si las condiciones estan dadas para terminar la partida", {self.terminarEnfrentamiento()})	
 	}
 	
 	method murioJugador1()
@@ -51,12 +45,9 @@ class Enfrentamiento {
 	{
 		if (flagTerminarEnfrentamiento)
 		{
-			const texto = new Texto(ganador = ganador)
 			game.removeTickEvent("chequear si murio el jugador 1")
 			game.removeTickEvent("chequear si murio el jugador 2")
 			game.removeTickEvent("chequear si las condiciones estan dadas para terminar la partida")
-			//game.addVisual(texto)
-			//game.schedule(1500, {game.clear()})
 		}
 	}
 	
@@ -79,17 +70,5 @@ class Enfrentamiento {
 		keyboard.p().onPressDo{personaje2.disparar()} 
 		keyboard.k().onPressDo{personaje2.dejarBomba()}
 	}
-	
-
 }
 
-class Texto{
-	const ganador 
-	var property position = game.center()
-	method text() = ganador.nombre() + " gano"
-}
-class TextoVivo{
-	const jugador
-	var property position = game.at(10,10)
-	method text() = jugador.muerto().toString()
-}
