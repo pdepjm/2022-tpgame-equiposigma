@@ -8,7 +8,7 @@ class Enfrentamiento {
 	const personaje1
 	const personaje2
 	const nivel
-	var flagTerminarEnfrentamiento = false
+	var property flagTerminarEnfrentamiento = false
 	var property ganador = null
 	
 	
@@ -55,8 +55,8 @@ class Enfrentamiento {
 			game.removeTickEvent("chequear si murio el jugador 1")
 			game.removeTickEvent("chequear si murio el jugador 2")
 			game.removeTickEvent("chequear si las condiciones estan dadas para terminar la partida")
-			game.addVisual(texto)
-			game.schedule(1500, {game.clear()})
+			//game.addVisual(texto)
+			//game.schedule(1500, {game.clear()})
 		}
 	}
 	

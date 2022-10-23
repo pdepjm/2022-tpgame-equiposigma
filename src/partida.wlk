@@ -10,17 +10,100 @@ class Partida{
 	const personaje1
 	const personaje2
 	
+	var victoriasPersonaje1 = 0
+	var victoriasPersonaje2 = 0
+	
 	var ganador = null
 	
+	const nivel = primerNivel
+	const nivel2= segundoNivel
+	
+	var terminoPrimerEnfrentamiento = false
+	var terminoSegundoEnfrentamiento = false
+	var terminoTercerEnfrentamiento = false
+	
+	
+	method jugarPrimerNivel(){
+		
+		const enfrentamiento = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel)
+		enfrentamiento.jugar()
+		 
+		 //Actualizo si se termino el enfrentamiento
+		 game.onTick(100, "actualizo si se termino el enfrentamiento", {terminoPrimerEnfrentamiento = enfrentamiento.flagTerminarEnfrentamiento()})
+		 
+		 //Si el primer enfrentamiento se terminó, paso al segundo nivel
+		 game.onTick(110, "pasar 2do nivel", {if(terminoPrimerEnfrentamiento){self.jugarSegundoNivel()}; game.removeTickEvent("pasar 2do nivel")})
+	}
+	
+	method jugarSegundoNivel()
+	{
+		game.clear()
+		const enfrentamiento2 = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel2)
+		enfrentamiento2.jugar()
+		
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	
+
+	const niveles = [primerNivel, segundoNivel, tercerNivel]
+	
 	method jugar(){
+		niveles.forEach({nivel => self.jugarUnNivel(nivel)})
 		
 	}
 	
-
+	method jugarUnNivel(nivel)
+	{
+		const enfrentamiento = new Enfrentamiento(personaje1 = personaje1, personaje2 = personaje2, nivel = nivel)
+		enfrentamiento.jugar()
+		
+		game.onTick(100, "chequeo si alguien gano", {self.sacarGanador(enfrentamiento)})
+		//Saco al ganador una vez que el enfrentamiento termino
+			
+	}
+	
+	method sacarGanador(enfrentamiento)
+	{
+		if (enfrentamiento.flagTerminarEnfrentamiento())
+		{
+				ganador = enfrentamiento.ganador()
+				
+				if (ganador === personaje1){victoriasPersonaje1++}
+				else{victoriasPersonaje2}
+				game.removeTickEvent("chequeo si alguien gano")
+				
+		}
+	}
+	method mostrarGanador(ganadorEn)
+	{
+		
+		const texto = new TextoGanador(ganador = ganadorEn)
+		game.addVisual(texto)
+		//game.schedule(5000, game.clear())
+	}
 
 	
 }
 
+class TextoGanador{
+	const ganador
+	var property position = game.at(10,12)
+	method text() = ganador.nombre() + " gano"
+}
 
 
 
