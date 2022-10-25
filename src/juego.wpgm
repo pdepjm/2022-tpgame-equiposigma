@@ -11,8 +11,6 @@ program juego {
 	//const enfrentamiento = new Enfrentamiento(personaje1 = goku, personaje2 = superman, nivel = primerNivel)
 	//enfrentamiento.jugar()
 	
-	const partida = new Partida(personaje1 = goku, personaje2 = superman
-	)
 	menu.ejecutarMenu()
 	game.start()
 		

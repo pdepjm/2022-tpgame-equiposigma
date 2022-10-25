@@ -15,7 +15,7 @@ object menu {
 	method ejecutarMenu()
 	{
 		game.width(20)
-		game.height(15)
+		game.height(12)
 		game.cellSize(50)
 		self.configurarSelectores()
 		game.onTick(50, "check para iniciar la partida", {self.iniciarPartida()})

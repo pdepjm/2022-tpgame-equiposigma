@@ -46,6 +46,7 @@ class Partida{
 	{
 		game.removeTickEvent("pasar 2do nivel")
 		game.clear()
+		self.mostrarVictorias()
 		personaje1.muerto(false)
 		personaje2.muerto(false)
 		const enfrentamiento2 = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel2)
@@ -53,21 +54,30 @@ class Partida{
 		
 		game.onTick(100, "actualizo finalizacion 2do enfrentamiento", {terminoSegundoEnfrentamiento = enfrentamiento2.flagTerminarEnfrentamiento()})
 		
-		game.onTick(110, "pasar 3er nivel", {if(terminoSegundoEnfrentamiento){self.cuantificarVictoria(enfrentamiento2);self.jugarTercerNivel();  game.removeTickEvent("pasar 3er nivel")}} /*game.removeTickEvent("pasar 3er nivel")}*/)
+		game.onTick(110, "pasar 3er nivel", {if(terminoSegundoEnfrentamiento)
+			{self.cuantificarVictoria(enfrentamiento2)
+			self.jugarTercerNivel()}}) 
 		
 	}
 	
 	method jugarTercerNivel()
 	{
 		game.removeTickEvent("pasar 3er nivel")
+
 		game.clear()
+		self.mostrarVictorias()
 		personaje1.muerto(false)
 		personaje2.muerto(false)
 		const enfrentamiento3 = new Enfrentamiento(personaje1 = personaje1, personaje2 = personaje2, nivel = nivel3)
 		enfrentamiento3.jugar()
 		
+		/*var texto = new TextoVictoria(ganador = terminoTercerEnfrentamiento)
+		game.onTick(50, "p", texto.ganador(terminoTercerEnfrentamiento))
+		game.addVisual(texto)*/
+		
+		
 		game.onTick(100, "actualizo finalizacion 3er enfrentamiento", {terminoTercerEnfrentamiento = enfrentamiento3.flagTerminarEnfrentamiento()})
-		game.onTick(110, "pasar 3er nivel", {if(terminoTercerEnfrentamiento){ game.clear()/*self.cuantificarVictoria(enfrentamiento3); self.mostrarGanador(); game.removeTickEvent("pasar 3er nivel")*/}})
+		game.onTick(110, "terminar 3er nivel", {if(terminoTercerEnfrentamiento){self.mostrarGanador()/*self.cuantificarVictoria(enfrentamiento3); self.mostrarGanador(); game.removeTickEvent("pasar 3er nivel")*/}})
 	}
 	
 	method mostrarGanador()
@@ -84,6 +94,13 @@ class Partida{
 		}
 		
 	}
+	method mostrarVictorias(){
+		const victorias1 = new Victorias ( victorias = victoriasPersonaje1, position = game.at(10,10))
+		const victorias2 = new Victorias ( victorias = victoriasPersonaje2, position = game.at(8,10))
+		
+		game.addVisual(victorias1)
+		game.addVisual(victorias2)
+	}
 }
 	
 	
@@ -92,4 +109,10 @@ class TextoVictoria{
 	var property position = game.center()
 	method text() = ganador.nombre() + " wins!"
 	
+}
+
+class Victorias{
+	var victorias
+	var property position
+	method text() = victorias.toString()
 }
