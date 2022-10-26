@@ -2,7 +2,7 @@ import wollok.game.*
 import enfrentamiento.*
 import direcciones.*
 import levels.*
-
+import menuValen.*
 
 
 class Partida{
@@ -32,6 +32,7 @@ class Partida{
 	
 	method jugarPrimerNivel(){
 		
+		game.clear()
 		const enfrentamiento = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel)
 		enfrentamiento.jugar()
 		 
@@ -54,32 +55,25 @@ class Partida{
 	method jugarSegundoNivel()
 	{
 		game.removeTickEvent("pasar 2do nivel")
-		//game.clear()
-		//self.mostrarVictorias()
+
 		personaje1.muerto(false)
 		personaje2.muerto(false)
 		const enfrentamiento2 = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel2)
-		//enfrentamiento2.jugar()
 					
 		game.schedule(2000, 
 			{
 			game.clear();
 			enfrentamiento2.jugar();
-			self.mostrarVictorias();
 			game.onTick(100, "actualizo finalizacion 2do enfrentamiento", {terminoSegundoEnfrentamiento = enfrentamiento2.flagTerminarEnfrentamiento()});
 			game.onTick(110, "pasar 3er nivel", 
 				{if(terminoSegundoEnfrentamiento)
 					{self.cuantificarVictoria(enfrentamiento2)
 					 const pantalla = new PantallaCarga(texto = enfrentamiento2.ganador().nombre() + " ganó!")
 					 game.addVisual(pantalla)
-					 self.jugarTercerNivel()}}) 			 	
+					 self.determinarTerceraEtapa()}}) 			 	
 			}
 		)
-		
-
 	}
-	
-	
 	
 	method determinarTerceraEtapa()
 	{
@@ -90,8 +84,9 @@ class Partida{
 		else
 		{
 			self.determinarGanador()
-			const texto = new PantallaCarga(texto = ganador.nombre() + " ganó!")
+			const texto = new PantallaFinal(ganador = ganador)
 			game.addVisual(texto)	
+			texto.controles()
 		}
 	}
 	
@@ -123,12 +118,12 @@ class Partida{
 	{
 		if(victoriasPersonaje1 > victoriasPersonaje2)
 		{
-			const texto = new TextoVictoria(ganador = personaje1)
+			const texto = new PantallaFinal(ganador = personaje1)
 			game.addVisual(texto)
 		}
 		if (victoriasPersonaje2 > victoriasPersonaje1) 
 		{
-			const texto = new TextoVictoria(ganador = personaje2)
+			const texto = new PantallaFinal(ganador = personaje2)
 			game.addVisual(texto)
 		}	
 	}
@@ -167,4 +162,16 @@ class PantallaCarga{
 	const property position = game.center()
 	method text() = texto
 	method textColor() = "FFFFFF"
+}
+
+class PantallaFinal{
+	const ganador
+	const property position = game.center()
+	method text() = ganador.nombre() + " ganó!"
+	
+	method controles()
+	{
+		keyboard.r().onPressDo({menu.ejecutarMenu()})
+		keyboard.c().onPressDo({game.stop()})
+	}
 }
