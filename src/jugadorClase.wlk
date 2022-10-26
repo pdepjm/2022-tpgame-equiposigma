@@ -115,6 +115,10 @@ class Jugador {
 			self.moverseA(abajo)
 		}
 	}
+	method posicionMuerte()
+    {
+        if(self.position().y() < 0) muerto = true 
+    }
 }
 
 

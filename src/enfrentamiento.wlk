@@ -61,6 +61,8 @@ class Enfrentamiento {
 	method configurarTeclas(){
 		game.onTick(50, "caer", {personaje1.gravedad()})
 		game.onTick(50, "caer", {personaje2.gravedad()})
+		game.onTick(50, "morir", {personaje1.posicionMuerte()})
+        game.onTick(50, "morir", {personaje2.posicionMuerte()})
 		
 		keyboard.a().onPressDo{personaje1.moverseA(izquierda)}
 		keyboard.d().onPressDo{personaje1.moverseA(derecha)}
