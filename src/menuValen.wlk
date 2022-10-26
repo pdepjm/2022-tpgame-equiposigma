@@ -18,6 +18,7 @@ object menu {
 		game.width(20)
 		game.height(12)
 		game.cellSize(50)
+		game.boardGround("fondo.png")
 		self.configurarSelectores()
 		self.colocarBotones()
 		game.onTick(50, "check para iniciar la partida", {self.iniciarPartida()})
@@ -65,6 +66,8 @@ object menu {
 		const botones = [boton1, boton2, boton3, boton4, boton5, boton6]
 		
 		botones.forEach({boton => game.addVisual(boton)})
+		game.addVisual(logo)
+
 		
 	}
 	

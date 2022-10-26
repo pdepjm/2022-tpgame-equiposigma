@@ -52,9 +52,6 @@ class Enfrentamiento {
 	}
 	
 	method configurarTeclas(){
-		game.width(20)
-		game.height(8)
-		game.cellSize(50)
 		game.onTick(50, "caer", {personaje1.gravedad()})
 		game.onTick(50, "caer", {personaje2.gravedad()})
 		

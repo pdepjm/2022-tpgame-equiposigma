@@ -35,6 +35,7 @@ class Partida{
 		game.clear()
 		const enfrentamiento = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel)
 		enfrentamiento.jugar()
+		//game.boardGround("fondo.png")
 		 
 		 //Actualizo si se termino el enfrentamiento
 		 game.onTick(100, "actualizo si se termino el enfrentamiento", {terminoPrimerEnfrentamiento = enfrentamiento.flagTerminarEnfrentamiento()})
@@ -64,6 +65,7 @@ class Partida{
 			{
 			game.clear();
 			enfrentamiento2.jugar();
+			//game.boardGround("nivelTres.png")
 			game.onTick(100, "actualizo finalizacion 2do enfrentamiento", {terminoSegundoEnfrentamiento = enfrentamiento2.flagTerminarEnfrentamiento()});
 			game.onTick(110, "pasar 3er nivel", 
 				{if(terminoSegundoEnfrentamiento)
