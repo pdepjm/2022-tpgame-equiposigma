@@ -16,12 +16,19 @@ class Enfrentamiento {
 	{
 		nivel.renderizar()
 		self.configurarTeclas()
+		self.ubicarJugadores()
 		game.addVisual(personaje1)
 		game.addVisual(personaje2)
 				
 		game.onTick(100, "chequear si murio el jugador 1", {self.murioJugador1()})
 		game.onTick(100,"chequear si murio el jugador 2", {self.murioJugador2()})
 		game.onTick(110,"chequear si las condiciones estan dadas para terminar la partida", {self.terminarEnfrentamiento()})	
+	}
+	
+	method ubicarJugadores()
+	{
+		personaje1.position(nivel.spawnJ1())
+		personaje2.position(nivel.spawnJ2())
 	}
 	
 	method murioJugador1()

@@ -5,15 +5,13 @@ import elementos.*
 
 object primerNivel inherits Level {
 	
-	/* override method nuevoSpawnPersonajes(){
-		spawnPersonaje1 = [game.at(5,5)]
-	} */ 
+	const property spawnJ1 = game.at(14,8)
+	const property spawnJ2 = game.at(4,4)
 	
 	override method nombreNivel() = "nivelUno"
 	
 	override method renderizar(){
 		
-		// soportes 
 		const soporte1 = new SoporteLadrillo(columna=[1,2,3,4,5,6,7,8,9,10,11,12],fila=[1])
 		const soporte2 = new SoporteLadrillo(fila=[1], columna=[14,15,16,17,18,19])
 		const soporte3 = new SoporteLadrillo(fila=[4],columna=[2,3,4,5,6,7])
@@ -31,6 +29,10 @@ object primerNivel inherits Level {
 }
 
 object segundoNivel inherits Level{
+	
+	const property spawnJ1 = game.at(4,0)
+	const property spawnJ2 = game.at(8,10)
+	
 	override method nombreNivel() = "nivelDos"
 	
 	override method renderizar(){
@@ -50,6 +52,10 @@ object segundoNivel inherits Level{
 }
 
 object tercerNivel inherits Level{
+	
+	const property spawnJ1 = game.at(2,0)
+	const property spawnJ2 = game.at(4,19)
+	
 	override method nombreNivel() = "nivelTres"
 	
 	override method renderizar(){
