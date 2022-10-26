@@ -22,8 +22,7 @@ object menu {
 		self.configurarSelectores()
 		self.colocarBotones()
 		game.onTick(50, "check para iniciar la partida", {self.iniciarPartida()})
-		
-		
+
 	}
 	
 	method iniciarPartida()
@@ -67,8 +66,12 @@ object menu {
 		
 		botones.forEach({boton => game.addVisual(boton)})
 		game.addVisual(logo)
-
-		
+	}
+	
+	method reiniciarMenu()
+	{
+		seleccionoJugador1 = false
+		seleccionoJugador2 = false
 	}
 	
 		

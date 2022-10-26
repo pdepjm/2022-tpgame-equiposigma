@@ -30,7 +30,7 @@ object primerNivel inherits Level {
 
 object segundoNivel inherits Level{
 	
-	const property spawnJ1 = game.at(4,0)
+	const property spawnJ1 = game.at(8,10)
 	const property spawnJ2 = game.at(8,10)
 	
 	override method nombreNivel() = "nivelDos"
@@ -53,8 +53,8 @@ object segundoNivel inherits Level{
 
 object tercerNivel inherits Level{
 	
-	const property spawnJ1 = game.at(2,0)
-	const property spawnJ2 = game.at(4,19)
+	const property spawnJ1 = game.at(14,5)
+	const property spawnJ2 = game.at(14,5)
 	
 	override method nombreNivel() = "nivelTres"
 	

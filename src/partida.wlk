@@ -121,11 +121,13 @@ class Partida{
 		if(victoriasPersonaje1 > victoriasPersonaje2)
 		{
 			const texto = new PantallaFinal(ganador = personaje1)
+			texto.controles()
 			game.addVisual(texto)
 		}
 		if (victoriasPersonaje2 > victoriasPersonaje1) 
 		{
 			const texto = new PantallaFinal(ganador = personaje2)
+			texto.controles()
 			game.addVisual(texto)
 		}	
 	}
@@ -145,12 +147,6 @@ class Partida{
 }
 	
 	
-class TextoVictoria{
-	const ganador
-	var property position = game.center()
-	method text() = ganador.nombre() + " wins!"
-	
-}
 
 class Victorias{
 	var victorias
@@ -169,11 +165,23 @@ class PantallaCarga{
 class PantallaFinal{
 	const ganador
 	const property position = game.center()
-	method text() = ganador.nombre() + " ganó!"
+	const control1 = new Texto(texto = "presione R para jugar de nuevo", position = game.at(8,8))
+	const control2 = new Texto(texto = "presione C para cerrar", position = game.at(12,8))
 	
+	method text() = ganador.nombre() + " ganó!"
+
 	method controles()
 	{
-		keyboard.r().onPressDo({menu.ejecutarMenu()})
+		game.addVisual(control1)
+		game.addVisual(control2)
+		keyboard.r().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu()})
 		keyboard.c().onPressDo({game.stop()})
 	}
 }
+
+class Texto{
+	const texto
+	const property position
+	method text() = texto	
+}
+
