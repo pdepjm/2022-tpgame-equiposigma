@@ -70,7 +70,16 @@ El juego consta también con una interfaz a la que denominamos obstáculo, esta 
 Partida es una clase que consta de 3 metodos muy importantes para el juego, estos son los 3 distintos enfrentamiento que se pueden dar entre los 2 jugadores.
 Tambien cuenta con un método cuantificarVictoria, este método se ocupa de ir actualizando las flags: victoriasPersonaje1 o victoriasPersonaje2 con la cantidad de 
 veces que ganó cada jugador. 
-Cada uno de estos métodos para iniciar un enfrentamiento se ocupa de instanciar el enfrentamiento especifico para tal, donde cada enfrentamiento entiende el método jugar() 
+Cada uno de estos métodos para iniciar un enfrentamiento se ocupa de instanciar el enfrentamiento especifico para tal, donde cada enfrentamiento entiende el método jugar()
+
+para que usamos las clases en esta parte del tp?
+
+lo utilizamos para cada uno de los niveles que al pasar de nivel representa un enfrentamiento diferente. En estos enfrentamientos tenemos variables y metodos compartidos(personajes, nivel, y metodos como jugar y otros).
+
+En general, utilizamos clases en vez de objetos porque queremos repetir la misma lógica para muchos objetos que se comportan similar, y con las clases podemos escribir toda esa lógica una única vez y luego instanciar tantos enfrentamientos como requiriéramos. Ademas nos permite realizar mejores en un futuro, como seria el caso de guardar un registro de los resutados de las partidas qu jugaron con sierto personaje.
+
+
+
 
 (imagen de codigo)
 (imagen de diagrama)
