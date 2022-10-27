@@ -26,7 +26,7 @@ Una vez que cada jugador escogió a su personaje la partida iniciara. Los contro
 
 JUGADOR 1:
 -	W,D,A para saltar , ir hacia la derecha e ir hacia la izquierda respectivamente
--	E para sacar el laser y derrotar a su oponente (?
+-	Q para sacar el laser y derrotar a su oponente 
 -	S para soltar una de las tres bombas
 
 JUGADOR 2:
