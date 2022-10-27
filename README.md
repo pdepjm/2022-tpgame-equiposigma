@@ -109,4 +109,4 @@ soportes en levels.wlk para setear la posición de cada soporte por nivel. La cl
 
 - Curso:K2004/Facultad:UTNFRBA
 - Versión de wollok
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
+- Una vez terminado, no tenemos problemas en que el repositorio sea público
