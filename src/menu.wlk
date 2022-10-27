@@ -22,6 +22,7 @@ object menu {
 		self.configurarSelectores()
 		self.colocarBotones()
 		game.onTick(50, "check para iniciar la partida", {self.iniciarPartida()})
+		//game.schedule(100, {game.sound("linkinPark.mp3").play()})
 
 	}
 	

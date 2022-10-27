@@ -161,7 +161,8 @@ class PantallaFinal{
 	method text() = ganador.nombre() + " ganó!"
 
 	method controles()
-	{
+	{	
+		
 		game.addVisual(control1)
 		game.addVisual(control2)
 		keyboard.r().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu()})

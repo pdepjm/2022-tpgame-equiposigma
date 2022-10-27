@@ -1,6 +1,6 @@
 import wollok.game.*
 import direcciones.*
-import cajas.*
+
 import laser.*
 import level.*
 import levels.*
