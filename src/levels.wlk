@@ -5,8 +5,8 @@ import elementos.*
 
 object primerNivel inherits Level {
 	
-	const property spawnJ1 = game.at(14,8)
-	const property spawnJ2 = game.at(4,4)
+	const property spawnJ1 = game.at(4,4)
+	const property spawnJ2 = game.at(17,8)
 	
 	override method renderizar(){
 		
@@ -28,8 +28,8 @@ object primerNivel inherits Level {
 
 object segundoNivel inherits Level{
 	
-	const property spawnJ1 = game.at(8,10)
-	const property spawnJ2 = game.at(8,10)
+	const property spawnJ1 = game.at(3,8)
+	const property spawnJ2 = game.at(16,3)
 	
 	override method renderizar(){
 		game.boardGround("fondo.png")
@@ -49,8 +49,8 @@ object segundoNivel inherits Level{
 
 object tercerNivel inherits Level{
 	
-	const property spawnJ1 = game.at(14,5)
-	const property spawnJ2 = game.at(14,5)
+	const property spawnJ1 = game.at(3,4)
+	const property spawnJ2 = game.at(14,6)
 	
 	override method renderizar(){
 		game.boardGround("nivelTres.jpg")

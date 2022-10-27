@@ -11,6 +11,6 @@ class BotonPersonaje{
 }
 
 object logo{
-	const property position = game.at(10, 9)
+	const property position = game.at(8, 9)
 	method image() = "dimensionclash.png"
 }

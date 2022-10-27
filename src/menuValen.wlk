@@ -63,16 +63,16 @@ object menu {
     }
 	method colocarBotones()
     {
-        const boton1 = new BotonPersonaje(posicion = game.at(3,7), botonAPresionar = "1", personaje = superman)
-        const boton2 = new BotonPersonaje(posicion = game.at(3,6), botonAPresionar = "2", personaje = goku)
-        const boton3 = new BotonPersonaje(posicion = game.at(3,5), botonAPresionar = "3", personaje = zenitsu)
-        const boton4 = new BotonPersonaje(posicion = game.at(3,4), botonAPresionar = "4", personaje = holder)
-        const boton5 = new BotonPersonaje(posicion = game.at(3,3), botonAPresionar = "5", personaje = chewbacca)
-        const boton6 = new BotonPersonaje(posicion = game.at(10,7), botonAPresionar = "6", personaje = superman2)
-        const boton7 = new BotonPersonaje(posicion = game.at(10,6), botonAPresionar = "7", personaje = goku2)
-        const boton8 = new BotonPersonaje(posicion = game.at(10,5), botonAPresionar = "8", personaje = zenitsu2)
-        const boton9 = new BotonPersonaje(posicion = game.at(10,4), botonAPresionar = "9", personaje = holder2)
-        const boton0 = new BotonPersonaje(posicion = game.at(10,3), botonAPresionar = "0", personaje = chewbacca)
+        const boton1 = new BotonPersonaje(posicion = game.at(9,7), botonAPresionar = "1", personaje = superman)
+        const boton2 = new BotonPersonaje(posicion = game.at(9,6), botonAPresionar = "2", personaje = goku)
+        const boton3 = new BotonPersonaje(posicion = game.at(9,5), botonAPresionar = "3", personaje = zenitsu)
+        const boton4 = new BotonPersonaje(posicion = game.at(9,4), botonAPresionar = "4", personaje = holder)
+        const boton5 = new BotonPersonaje(posicion = game.at(9,3), botonAPresionar = "5", personaje = chewbacca)
+        const boton6 = new BotonPersonaje(posicion = game.at(11,7), botonAPresionar = "6", personaje = superman2)
+        const boton7 = new BotonPersonaje(posicion = game.at(11,6), botonAPresionar = "7", personaje = goku2)
+        const boton8 = new BotonPersonaje(posicion = game.at(11,5), botonAPresionar = "8", personaje = zenitsu2)
+        const boton9 = new BotonPersonaje(posicion = game.at(11,4), botonAPresionar = "9", personaje = holder2)
+        const boton0 = new BotonPersonaje(posicion = game.at(11,3), botonAPresionar = "0", personaje = chewbacca)
 
         const botones = [boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9, boton0]
 		
