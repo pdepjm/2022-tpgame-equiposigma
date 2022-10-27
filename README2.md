@@ -22,6 +22,7 @@ JUGADOR 1:
 -	W,D,A para saltar , ir hacia la derecha e ir hacia la izquierda respectivamente
 -	E para sacar el laser y derrotar a su oponente (?
 -	S para soltar una de las tres bombas
+
 JUGADOR 2:
 -	I,J,L para saltar, ir hacia la izquierda e ir hacia la derecha respectivamente
 -	P para lanzar un laser y derrotar a su oponente 
@@ -32,16 +33,24 @@ JUGADOR 2:
 DOCUMENTACION:
 
 Sección Jugador: 
-Dimension Clash implementa una interfaz a la que denominamos colisionDeLaser,esta interfaz cuenta con un método denominado efectoLaser() 
-que es utilizado polimorficamente por cada una de las clases que se muestran en el diagrama siguiente: 
+Dimension Clash implementa una interfaz a la que denominamos collisionDeLaser,esta interfaz cuenta con un método denominado efectoLaser() que es utilizado polimorficamente por cada una de las clases que se muestran en el diagrama siguiente: 
 
-(imagen diagrama de interfaz colisionDeLaser)
+![image](https://user-images.githubusercontent.com/102762669/198192851-04796a1a-0669-46c9-939f-6f42bb4fbd93.png)
 
-El juego consta también con una interfaz a la que denominamos obstáculo, esta interfaz tiene un método denominado RestringeMovimiento(), 
-la cual se utiliza polimórficamente en cada una de las que se muestra en el programa. Se tomo esta decisión ya que dependiendo del valor de retorno de ese mensaje,
-se disparará un láser en esa posición.
+efectoLaser() tiene como funcionalidad alterar el estado del elemento que es colisionado con el laser. Gracias al polimorfismo utilizado, el efectoLaser en una caja no tiene relevancia, dado que a este no es necesario que le afecte, pero si a un elemento de tipo Jugador. Si el laser colisiona en este ultimo, el atributo muerto perteneciente al jugador pasara a true.
 
-(imagen de diagrama de interfaz obstaculo)
+efecto laser en jugador:
+![image](https://user-images.githubusercontent.com/102762669/198192934-c7ac0240-82ac-4e95-a902-a00eee56f3c3.png)
+
+efecto laser en caja: 
+![image](https://user-images.githubusercontent.com/102762669/198193020-76a57f83-dcd8-48aa-b52f-f75657dcac7e.png)
+
+donde se aplica polimorficamente: en el metodo dispararLaserEn del jugador,que evalua el efecto que tiene el laser segun el elemento
+![image](https://user-images.githubusercontent.com/102762669/198193115-868159e1-a4a0-4477-b174-3f65a4f5adfa.png)
+![image](https://user-images.githubusercontent.com/102762669/198193194-ac5a83d7-7720-4fd7-8fe5-5a98e5792684.png)
+
+
+
 
 SECCION PARTIDA: 
 Partida es una clase que consta de 3 metodos muy importantes para el juego, estos son los 3 distintos enfrentamiento que se pueden dar entre los 3 jugadores.
