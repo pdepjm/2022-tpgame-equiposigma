@@ -38,8 +38,10 @@ JUGADOR 2:
 
 ## DOCUMENTACION:
 
-###SECCION JUGADOR: 
-Dimension Clash implementa una interfaz a la que denominamos collisionDeLaser,esta interfaz cuenta con un método denominado efectoLaser() que es utilizado polimorficamente por cada una de las clases que se muestran en el diagrama siguiente: 
+#### SECCION JUGADOR: 
+
+
+Dentro del codigo de Dimension Clash, se implementa una interfaz a la que denominamos collisionDeLaser,esta interfaz cuenta con un método denominado efectoLaser() que es utilizado polimorficamente por cada una de las clases que se muestran en el diagrama siguiente: 
 
 ![image](https://user-images.githubusercontent.com/102762669/198192851-04796a1a-0669-46c9-939f-6f42bb4fbd93.png)
 
@@ -57,18 +59,25 @@ efectoLaser() tiene como funcionalidad alterar el estado del elemento que es col
 ![image](https://user-images.githubusercontent.com/102762669/198193115-868159e1-a4a0-4477-b174-3f65a4f5adfa.png)
 ![image](https://user-images.githubusercontent.com/102762669/198193194-ac5a83d7-7720-4fd7-8fe5-5a98e5792684.png)
 
+El juego consta también con una interfaz a la que denominamos obstáculo, esta interfaz tiene un método denominado RestringeMovimiento(), la cual se utiliza polimórficamente en cada una de las clases que se muestra en el diagrama. Se tomo esta decisión ya que dependiendo del valor de retorno de ese mensaje, se disparará un láser en una posicion determinada.
 
-###SECCION PARTIDA: 
-Partida es una clase que consta de 3 metodos muy importantes para el juego, estos son los 3 distintos enfrentamiento que se pueden dar entre los 3 jugadores.
+![image](https://user-images.githubusercontent.com/102762669/198196339-4aa8340b-15a2-4809-b98a-9251091883b1.png)
+
+
+#### SECCION PARTIDA: 
+
+
+Partida es una clase que consta de 3 metodos muy importantes para el juego, estos son los 3 distintos enfrentamiento que se pueden dar entre los 2 jugadores.
 Tambien cuenta con un método cuantificarVictoria, este método se ocupa de ir actualizando las flags: victoriasPersonaje1 o victoriasPersonaje2 con la cantidad de 
 veces que ganó cada jugador. 
-Cada uno de estos métodos para iniciar un enfrentamiento se ocupa de instanciar el enfrentamiento especifico para tal, donde cada enfrentamiento entiende el método 
-jugar() que esta definido polimmorficamente.
+Cada uno de estos métodos para iniciar un enfrentamiento se ocupa de instanciar el enfrentamiento especifico para tal, donde cada enfrentamiento entiende el método jugar() 
 
 (imagen de codigo)
 (imagen de diagrama)
 
-###SECCION NIVELES: 
+#### SECCION NIVELES: 
+
+
 Level es una clase abstracta que cuenta con un método renderizar que es utilizado polimórficamente por cada nivel (primerNivel, segundoNivel y tercerNivel),cada uno de estos niveles hereda de la clase level. 
 Level conoce al objeto render, que es utilizado para renderizar cada uno de las cajas utilizadas y se pueden mostrar en pantalla. Utilizamos una coleccion de 
 soportes en levels.wlk para setear la posición de cada soporte por nivel. La clase soporte entiende el método preparar().
