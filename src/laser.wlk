@@ -1,7 +1,5 @@
 import wollok.game.*
 import jugadorClase.*
-import cajas.*
-
 class Laser {
 	
 	const property position 

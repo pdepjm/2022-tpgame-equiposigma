@@ -7,7 +7,9 @@ class BotonPersonaje{
 	const personaje
 	method position() = posicion
 	method text() = botonAPresionar + " - " + personaje.nombre()
-
+	
+	method restringeMovimiento(){return false}
+	method efectoLaser(){}
 }
 
 object logo{

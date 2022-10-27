@@ -33,6 +33,8 @@ class Enfrentamiento {
         personaje2.estaDisparando(false)
         personaje1.estaCayendo(false)
         personaje2.estaCayendo(false)
+        personaje1.cantidadDeBombas(3) 
+        personaje2.cantidadDeBombas(3)
 
         personaje1.position(nivel.spawnJ1())
         personaje2.position(nivel.spawnJ2())
@@ -74,7 +76,7 @@ class Enfrentamiento {
 		keyboard.a().onPressDo{personaje1.moverseA(izquierda)}
 		keyboard.d().onPressDo{personaje1.moverseA(derecha)}
 		keyboard.w().onPressDo{personaje1.saltar()}
-		keyboard.e().onPressDo{personaje1.disparar()}
+		keyboard.q().onPressDo{personaje1.disparar()}
 		keyboard.s().onPressDo{personaje1.dejarBomba()}
 
 		keyboard.i().onPressDo{personaje2.saltar()}

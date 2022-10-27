@@ -33,6 +33,7 @@ class Jugador {
 	method image() = imagen
 	
 	method cambiarImagen(nuevaImagen) {imagen = nuevaImagen}
+
 	
 	method restringeMovimiento() {return false}
 	

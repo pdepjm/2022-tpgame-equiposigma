@@ -2,7 +2,7 @@ import wollok.game.*
 import enfrentamiento.*
 import direcciones.*
 import levels.*
-import menuValen.*
+import menu.*
 
 
 class Partida{
@@ -35,7 +35,7 @@ class Partida{
 		game.clear()
 		const enfrentamiento = new Enfrentamiento(personaje1= personaje1, personaje2 = personaje2, nivel = nivel)
 		enfrentamiento.jugar()
-		//game.boardGround("fondo.png")
+
 		 
 		 //Actualizo si se termino el enfrentamiento
 		 game.onTick(100, "actualizo si se termino el enfrentamiento", {terminoPrimerEnfrentamiento = enfrentamiento.flagTerminarEnfrentamiento()})
@@ -65,7 +65,7 @@ class Partida{
 			{
 			game.clear();
 			enfrentamiento2.jugar();
-			//game.boardGround("nivelTres.png")
+	
 			game.onTick(100, "actualizo finalizacion 2do enfrentamiento", {terminoSegundoEnfrentamiento = enfrentamiento2.flagTerminarEnfrentamiento()});
 			game.onTick(110, "pasar 3er nivel", 
 				{if(terminoSegundoEnfrentamiento)
@@ -137,22 +137,10 @@ class Partida{
 		if (victoriasPersonaje1 > victoriasPersonaje2) {ganador = personaje1}
 		else {ganador = personaje2}
 	}
-	method mostrarVictorias(){
-		const victorias1 = new Victorias ( victorias = victoriasPersonaje1, position = game.at(10,10))
-		const victorias2 = new Victorias ( victorias = victoriasPersonaje2, position = game.at(8,10))
-		
-		game.addVisual(victorias1)
-		game.addVisual(victorias2)
-	}
-}
-	
-	
 
-class Victorias{
-	var victorias
-	var property position
-	method text() = victorias.toString()
 }
+	
+	
 
 
 class PantallaCarga{
@@ -160,6 +148,8 @@ class PantallaCarga{
 	const property position = game.center()
 	method text() = texto
 	method textColor() = "FFFFFF"
+	method restringeMovimiento(){return false}
+	method efectoLaser(){}
 }
 
 class PantallaFinal{
@@ -177,11 +167,15 @@ class PantallaFinal{
 		keyboard.r().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu()})
 		keyboard.c().onPressDo({game.stop()})
 	}
+	method restringeMovimiento(){return false}
+	method efectoLaser(){}
 }
 
 class Texto{
 	const texto
 	const property position
 	method text() = texto	
+	method restringeMovimiento(){return false}
+	method efectoLaser(){}
 }
 
