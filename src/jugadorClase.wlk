@@ -36,7 +36,6 @@ class Jugador {
 	
 	method restringeMovimiento() {return false}
 	
-	method posInicial(valor)= if(valor==1)position==game.at(3,2) else position==game.at(16,2) 
 	
 	method efectoLaser()
 	{
@@ -62,15 +61,19 @@ class Jugador {
 	
 	method disparar()
 	{
-		if ( self.orientacion() === derecha ) {self.cambiarImagen(imagenDisparo)}
-		else {self.cambiarImagen(imagenDisparoIzquierda)}
-		self.estaDisparando(true)
-		const lineaDeTiro = orientacion.lineaDeTiro(self.position())
-		lineaDeTiro.forEach({posicion => self.dispararLaserEn(posicion)})
-		if ( self.orientacion() === derecha) {game.schedule(1000, {self.cambiarImagen(imagenDerecha)})}
-		else {game.schedule(1000, {self.cambiarImagen(imagenIzquierda)})}  //Una vez que pasa un segundo, vuelvo a la imagen de siempre y
-		game.schedule(1000, {estaDisparando = false})      		           //habilito el movimiento de nuevo
-		game.sound(self.sonidoPoder()).play()
+		if(not muerto)
+		{
+			if ( self.orientacion() === derecha ) {self.cambiarImagen(imagenDisparo)}
+			else {self.cambiarImagen(imagenDisparoIzquierda)}
+			self.estaDisparando(true)
+			const lineaDeTiro = orientacion.lineaDeTiro(self.position())
+			lineaDeTiro.forEach({posicion => self.dispararLaserEn(posicion)})
+			if ( self.orientacion() === derecha) {game.schedule(1000, {self.cambiarImagen(imagenDerecha)})}
+			else {game.schedule(1000, {self.cambiarImagen(imagenIzquierda)})}  //Una vez que pasa un segundo, vuelvo a la imagen de siempre y
+			game.schedule(1000, {estaDisparando = false})      		           //habilito el movimiento de nuevo
+			game.sound(self.sonidoPoder()).play()
+		}
+
 	}
 	
 	method dispararLaserEn(posicion)
@@ -83,6 +86,8 @@ class Jugador {
 	
 	method dejarBomba()
 	{
+		if(not muerto)
+		{
 		if(cantidadDeBombas > 0) {
 		const bomba = new Bomba(position = self.position())
 		game.addVisual(bomba)
@@ -90,6 +95,7 @@ class Jugador {
 		game.schedule(2000, {game.onCollideDo(bomba, {elemento => bomba.explotar()})})	
 		game.schedule(2000, {game.onCollideDo(bomba, {elemento => elemento.efectoLaser()})})
 		cantidadDeBombas -= 1
+		}
 		}
 	}
 	

@@ -14,9 +14,9 @@ class Enfrentamiento {
 	
 	method jugar()
 	{
-		nivel.renderizar()
 		self.configurarTeclas()
 		self.ubicarJugadores()
+		nivel.renderizar()
 		game.addVisual(personaje1)
 		game.addVisual(personaje2)
 				
@@ -27,8 +27,15 @@ class Enfrentamiento {
 	
 	method ubicarJugadores()
 	{
-		personaje1.position(nivel.spawnJ1())
-		personaje2.position(nivel.spawnJ2())
+		personaje1.muerto(false)         //Delegar esto a un metodo del jugador
+        personaje2.muerto(false)
+        personaje1.estaDisparando(false)
+        personaje2.estaDisparando(false)
+        personaje1.estaCayendo(false)
+        personaje2.estaCayendo(false)
+
+        personaje1.position(nivel.spawnJ1())
+        personaje2.position(nivel.spawnJ2())
 	}
 	
 	method murioJugador1()
