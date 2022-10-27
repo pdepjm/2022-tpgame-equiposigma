@@ -49,14 +49,14 @@ describe "Player Movements" {
 	}
 
 	test "el jugador no se puede mover para abajo cuando hay un objeto" {
-		soporte1.render()
+		soporte1.preparar()
 		jugador4.moverseA(abajo)
 		assert.equals(game.at(16,2), jugador4.position())
 	}
     
 	test "el jugador no se puede mover entre bloques" {
-		soporte1.render()
-		soporte2.render()
+		soporte1.preparar()
+		soporte2.preparar()
 		jugador4.moverseA(izquierda)
 		assert.equals(game.at(16,2), jugador4.position())
 	}
@@ -92,7 +92,7 @@ describe "Funcionalidad Bomba"{
 		// test para mostrar que se le acaban las bombas al flaco ?? 
 		
 		test "la bomba hace KaPum y las cajas de alrededor no se van"{
-            soporte1.render()
+            soporte1.preparar()
             jugador4.position(game.at(13,2))
             jugador5.position(game.at(14,2))
             jugador4.dejarBomba()
