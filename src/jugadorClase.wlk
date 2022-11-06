@@ -30,6 +30,8 @@ class Jugador {
 	
 	const property sonidoPoder 
 	
+	const property imagenDeVictoria
+	
 	method image() = imagen
 	
 	method cambiarImagen(nuevaImagen) {imagen = nuevaImagen}
@@ -128,5 +130,11 @@ class Jugador {
     }
 }
 
-
+class ImagenDeVictoria{
+	const property position = game.at(8,3)
+	const property jugador
+	method image() = jugador.imagenDeVictoria()
+	method efectoLaser(){}
+	method restringeMovimiento(){}
+}
 

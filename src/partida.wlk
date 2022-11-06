@@ -3,6 +3,7 @@ import enfrentamiento.*
 import direcciones.*
 import levels.*
 import menu.*
+import jugadorClase.*
 
 
 class Partida{
@@ -123,12 +124,14 @@ class Partida{
 			const texto = new PantallaFinal(ganador = personaje1)
 			texto.controles()
 			game.addVisual(texto)
+
 		}
 		if (victoriasPersonaje2 > victoriasPersonaje1) 
 		{
 			const texto = new PantallaFinal(ganador = personaje2)
 			texto.controles()
 			game.addVisual(texto)
+
 		}	
 	}
 	
@@ -165,6 +168,7 @@ class PantallaFinal{
 		
 		game.addVisual(control1)
 		game.addVisual(control2)
+		game.addVisual(new ImagenDeVictoria(jugador = ganador))
 		keyboard.r().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu()})
 		keyboard.c().onPressDo({game.stop()})
 	}
