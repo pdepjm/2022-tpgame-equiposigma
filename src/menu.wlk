@@ -18,7 +18,7 @@ object menu {
 		game.width(20)
 		game.height(12)
 		game.cellSize(50)
-		game.boardGround("fondo.png")
+		game.addVisual(fondo)
 		self.configurarSelectores()
 		self.colocarBotones()
 		game.onTick(50, "check para iniciar la partida", {self.iniciarPartida()})
@@ -95,6 +95,11 @@ object menu {
 	}
 	
 		
+}
+
+object fondo{
+	var property position = game.at(0,0)
+	method image() = "menuprincipal.png"
 }
 
 

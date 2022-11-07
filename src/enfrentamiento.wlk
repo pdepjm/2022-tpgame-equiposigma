@@ -79,11 +79,11 @@ class Enfrentamiento {
 		keyboard.q().onPressDo{personaje1.disparar()}
 		keyboard.s().onPressDo{personaje1.dejarBomba()}
 
-		keyboard.i().onPressDo{personaje2.saltar()}
-		keyboard.l().onPressDo{personaje2.moverseA(derecha)}
-		keyboard.j().onPressDo{personaje2.moverseA(izquierda)}
-		keyboard.p().onPressDo{personaje2.disparar()} 
-		keyboard.k().onPressDo{personaje2.dejarBomba()}
+		keyboard.up().onPressDo{personaje2.saltar()}
+		keyboard.right().onPressDo{personaje2.moverseA(derecha)}
+		keyboard.left().onPressDo{personaje2.moverseA(izquierda)}
+		keyboard.down().onPressDo{personaje2.disparar()} 
+		keyboard.shift().onPressDo{personaje2.dejarBomba()}
 	}
 }
 

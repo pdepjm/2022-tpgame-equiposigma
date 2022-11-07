@@ -19,7 +19,7 @@ object primerNivel inherits Level {
 		
 		const soporte= [soporte1,soporte2,soporte3,soporte4,soporte5,soporte6]
 		
-		game.boardGround("fondo.png")
+		game.addVisual(fondo1)
 		render.renderizarSoportes(soporte)
 		
 	}
@@ -32,7 +32,7 @@ object segundoNivel inherits Level{
 	const property spawnJ2 = game.at(16,3)
 	
 	override method renderizar(){
-		game.boardGround("fondo.png")
+		game.addVisual(fondo2)
 		
 		const soporte1 = new Soporte(columna=[0,1,2,3,4,5,6,7,8,9,10,11,12,15,16,17,18,19,20],fila=[0],tipo="pasto")
 		const soporte2 = new Soporte(fila=[1], columna=[0,1,2,3,4,5,15,16,17,18,19,20],tipo="pasto")
@@ -47,13 +47,15 @@ object segundoNivel inherits Level{
 	}
 }
 
+
+
 object tercerNivel inherits Level{
 	
 	const property spawnJ1 = game.at(3,4)
 	const property spawnJ2 = game.at(14,6)
 	
 	override method renderizar(){
-		game.boardGround("nivelTres.jpg")
+		game.addVisual(fondo3)
 		const soporte1 = new Soporte(columna=[0,1,2,3,4,5],fila=[0],tipo="concreteBlock")
 		const soporte2 = new Soporte(columna=[0,3,5],fila=[1],tipo="concreteBlock")
 		const soporte8 = new Soporte(columna=[0,1,2,3,4,5],fila=[2],tipo="concreteBlock")
@@ -77,3 +79,18 @@ object tercerNivel inherits Level{
 		
 	}
 }
+
+
+object fondo1{
+	var property position = game.at(0,0)
+	method image() = "nubesdia.png"
+}
+object fondo2{
+	var property position = game.at(0,0)
+	method image() = "nubestarde.png"
+}
+object fondo3{
+	var property position = game.at(0,0)
+	method image() = "nubesnoche.png"
+}
+
