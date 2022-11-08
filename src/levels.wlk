@@ -87,10 +87,10 @@ object fondo1{
 }
 object fondo2{
 	var property position = game.at(0,0)
-	method image() = "nubestarde.png"
+	method image() = "nubesnoche.png"
 }
 object fondo3{
 	var property position = game.at(0,0)
-	method image() = "nubesnoche.png"
+	method image() = "nivelTres.jpg"
 }
 

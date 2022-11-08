@@ -19,8 +19,10 @@ object menu {
 		game.height(12)
 		game.cellSize(50)
 		game.addVisual(fondo)
-		self.configurarSelectores()
-		self.colocarBotones()
+		keyboard.enter().onPressDo({fondo.irASeleccionDePersonaje()})
+		keyboard.b().onPressDo({fondo.volverAlInicio()})
+		//self.configurarSelectores()
+		//self.colocarBotones()
 		game.onTick(50, "check para iniciar la partida", {self.iniciarPartida()})
 		//game.schedule(100, {game.sound("linkinPark.mp3").play()})
 
@@ -57,36 +59,15 @@ object menu {
         keyboard.num3().onPressDo({self.seleccionarZenitsu()})
         keyboard.num4().onPressDo({self.seleccionarHolder()})
         keyboard.num5().onPressDo({self.seleccionarChewbacca()})
-		keyboard.t().onPressDo({self.seleccionarMessi()})
+		keyboard.num6().onPressDo({self.seleccionarMessi()})
 		
-        keyboard.num6().onPressDo({self.seleccionarSuperman2()})
-        keyboard.num7().onPressDo({self.seleccionarGoku2()})
-        keyboard.num8().onPressDo({self.seleccionarZenitsu2()})
-        keyboard.num9().onPressDo({self.seleccionarHolder2()})
-        keyboard.num0().onPressDo({self.seleccionarChewbacca2()})
+        keyboard.t().onPressDo({self.seleccionarSuperman2()})
+        keyboard.y().onPressDo({self.seleccionarGoku2()})
+        keyboard.u().onPressDo({self.seleccionarZenitsu2()})
+        keyboard.i().onPressDo({self.seleccionarHolder2()})
+        keyboard.o().onPressDo({self.seleccionarChewbacca2()})
         keyboard.p().onPressDo({self.seleccionarMessi2()})
     }
-	method colocarBotones()
-    {
-        const boton1 = new BotonPersonaje(posicion = game.at(9,7), botonAPresionar = "1", personaje = superman)
-        const boton2 = new BotonPersonaje(posicion = game.at(9,6), botonAPresionar = "2", personaje = goku)
-        const boton3 = new BotonPersonaje(posicion = game.at(9,5), botonAPresionar = "3", personaje = zenitsu)
-        const boton4 = new BotonPersonaje(posicion = game.at(9,4), botonAPresionar = "4", personaje = holder)
-        const boton5 = new BotonPersonaje(posicion = game.at(9,3), botonAPresionar = "5", personaje = chewbacca)
-        const boton30 = new BotonPersonaje(posicion = game.at(9,2), botonAPresionar = "t", personaje = messi)
-
-        const boton10 = new BotonPersonaje(posicion = game.at(11,2), botonAPresionar = "p", personaje = messi2)        
-        const boton6 = new BotonPersonaje(posicion = game.at(11,7), botonAPresionar = "6", personaje = superman2)
-        const boton7 = new BotonPersonaje(posicion = game.at(11,6), botonAPresionar = "7", personaje = goku2)
-        const boton8 = new BotonPersonaje(posicion = game.at(11,5), botonAPresionar = "8", personaje = zenitsu2)
-        const boton9 = new BotonPersonaje(posicion = game.at(11,4), botonAPresionar = "9", personaje = holder2)
-        const boton0 = new BotonPersonaje(posicion = game.at(11,3), botonAPresionar = "0", personaje = chewbacca)
-
-        const botones = [boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9, boton0, boton10, boton30]
-		
-		botones.forEach({boton => game.addVisual(boton)})
-		game.addVisual(logo)
-	}
 	
 	method reiniciarMenu()
 	{
@@ -99,7 +80,17 @@ object menu {
 
 object fondo{
 	var property position = game.at(0,0)
-	method image() = "menuprincipal.png"
+	var property imagenDeFondo = "menuprincipal.png"
+	method image() = imagenDeFondo
+	method mirarControles(){}
+	method volver(){}
+	method irASeleccionDePersonaje(){
+		imagenDeFondo = "selectorPersonajes.png"
+		menu.configurarSelectores()
+	}
+	method volverAlInicio(){
+		imagenDeFondo = "menuprincipal.png"
+	}
 }
 
 

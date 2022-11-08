@@ -4,7 +4,7 @@ import jugadorClase.*
 //Delego el buscar una posicion en una direccion en una clase
 //Obtengo la linea de disparo del laser en una direccion
 
-class direccion{
+class Direccion{
 	method posicionSiguiente(posicionActual)
 	method modificarOrientacion(jugador)
 	method lineaDeTiro(posicion){
@@ -14,7 +14,7 @@ class direccion{
 	}
 }
 
-object izquierda inherits direccion{
+object izquierda inherits Direccion{
 	override method posicionSiguiente(posicionActual) = posicionActual.left(1)
 	
 	override method modificarOrientacion(jugador)
@@ -45,7 +45,7 @@ object izquierda inherits direccion{
 }
 
 
-object derecha inherits direccion {
+object derecha inherits Direccion {
 	override method posicionSiguiente(posicionActual) = posicionActual.right(1) 
 	
 	override method modificarOrientacion(jugador)
@@ -72,13 +72,13 @@ object derecha inherits direccion {
 	}
 }
 
-object arriba inherits direccion {
+object arriba inherits Direccion {
 	override method posicionSiguiente(posicionActual) = posicionActual.up(1)
 	
 	override method modificarOrientacion(jugador){} 
 }
 
-object abajo inherits direccion{
+object abajo inherits Direccion{
 	override method posicionSiguiente(posicionActual) = posicionActual.down(1) 
 	
 	override method modificarOrientacion(jugador){}

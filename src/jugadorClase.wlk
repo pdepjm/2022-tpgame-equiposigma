@@ -10,7 +10,7 @@ class Jugador {
 	var property muerto = false
 	
 	var property position //= game.at(3,2)
-	
+	var property estaDefendiendo = false
 	var property estaSaltando = false
 	var property estaDisparando = false
 	var property estaCayendo = false
@@ -37,16 +37,22 @@ class Jugador {
 	method cambiarImagen(nuevaImagen) {imagen = nuevaImagen}
 
 	
-	method restringeMovimiento() {return false}
-	
+	method restringeMovimiento() = estaDefendiendo
 	
 	method efectoLaser()
-	{
+	{	if(estaDefendiendo){}
+		else {
 		muerto = true
 		game.removeVisual(self)	//Muere si el laser colisiona con el jugador
-		//game.schedule(2000, {game.stop()})
+		}
 	}
 	
+	method activarEscudo(){
+		estaDefendiendo = true
+		//self.cambiarImagen(imagenEscudo)
+		//game.schedule(3000, {self.cambiarImagen(imagen)})
+		game.schedule(3000, {estaDefendiendo = false})
+	}
 	
 	method moverseA(direccion)
 	{
