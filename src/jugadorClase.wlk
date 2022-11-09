@@ -15,6 +15,7 @@ class Jugador {
 	var property estaDisparando = false
 	var property estaCayendo = false
 	var property cantidadDeBombas = 3
+	var property cantidadDeEscudos = 3
 	var property orientacion 
 	var property imagen 
 	const property nombre
@@ -25,6 +26,10 @@ class Jugador {
 	const property imagenDisparo 
 	
 	const property imagenDisparoIzquierda 
+	
+	const property imagenEscudo
+	
+	const property imagenEscudoIzquierda
 	
 	const property poder
 	
@@ -48,11 +53,19 @@ class Jugador {
 	}
 	
 	method activarEscudo(){
+		if(cantidadDeEscudos > 0){
 		estaDefendiendo = true
-		//self.cambiarImagen(imagenEscudo)
-		//game.schedule(3000, {self.cambiarImagen(imagen)})
+		if (orientacion == derecha) {
+			self.cambiarImagen(imagenEscudo)
+			game.schedule(3000, {self.cambiarImagen(imagenDerecha)})
+		}
+		else {
+			self.cambiarImagen(imagenEscudoIzquierda)
+			game.schedule(3000, {self.cambiarImagen(imagenIzquierda)})
+		}
 		game.schedule(3000, {estaDefendiendo = false})
-	}
+		cantidadDeEscudos -= 1
+	}}
 	
 	method moverseA(direccion)
 	{

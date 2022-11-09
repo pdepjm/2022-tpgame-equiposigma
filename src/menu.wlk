@@ -91,6 +91,8 @@ object fondo{
 	method volverAlInicio(){
 		imagenDeFondo = "menuprincipal.png"
 	}
+	method efectoLaser(){}
+	method restringeMovimiento(){}
 }
 
 

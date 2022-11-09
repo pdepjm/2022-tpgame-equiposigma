@@ -16,7 +16,9 @@ import jugadorClase.*
 									imagenDisparoIzquierda = "vacio.png",
 									poder = "rayozenitsu.png",
 									sonidoPoder= "rayosX.mp3", 
-									imagenDeVictoria = "zenitsuGanador.png") 
+									imagenDeVictoria = "zenitsuGanador.png", 
+									imagenEscudo = "zenitsuEscudo.png",
+									imagenEscudoIzquierda = "zenitsuizqEscudo.png") 
 									
 		 const jugador5 = new Jugador(   position = game.at(15,2),
 									orientacion = izquierda,
@@ -28,7 +30,9 @@ import jugadorClase.*
 									imagenDisparoIzquierda = "vacio.png",
 									poder = "rayozenitsu.png",
 									sonidoPoder= "rayosX.mp3", 
-									imagenDeVictoria = "zenitsuGanador.png") 
+									imagenDeVictoria = "zenitsuGanador.png", 
+									imagenEscudo = "zenitsuEscudo.png",
+									imagenEscudoIzquierda = "zenitsuizqEscudo.png") 
 									
 
 describe "Player Movements" {

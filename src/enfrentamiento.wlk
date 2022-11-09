@@ -76,17 +76,17 @@ class Enfrentamiento {
 		keyboard.a().onPressDo{personaje1.moverseA(izquierda)}
 		keyboard.d().onPressDo{personaje1.moverseA(derecha)}
 		keyboard.w().onPressDo{personaje1.saltar()}
-		keyboard.q().onPressDo{personaje1.disparar()}
+		keyboard.r().onPressDo{personaje1.disparar()}
 		keyboard.s().onPressDo{personaje1.dejarBomba()}
-		keyboard.e().onPressDo{personaje1.activarEscudo()}
+		keyboard.t().onPressDo{personaje1.activarEscudo()}
 		
 
 		keyboard.up().onPressDo{personaje2.saltar()}
 		keyboard.right().onPressDo{personaje2.moverseA(derecha)}
 		keyboard.left().onPressDo{personaje2.moverseA(izquierda)}
-		keyboard.m().onPressDo{personaje2.disparar()} 
-		keyboard.shift().onPressDo{personaje2.dejarBomba()}
-		keyboard.n().onPressDo{personaje2.activarEscudo()}
+		keyboard.p().onPressDo{personaje2.disparar()} 
+		keyboard.down().onPressDo{personaje2.dejarBomba()}
+		keyboard.o().onPressDo{personaje2.activarEscudo()}
 	}
 }
 
