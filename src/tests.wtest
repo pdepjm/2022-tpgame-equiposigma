@@ -1,6 +1,149 @@
+import wollok.game.*
+import direcciones.*
+import elementos.*
+import jugadorClase.*
 
-test "testX" {
+		const soporte1 = new Soporte(columna=[13,14,15,16,17],fila=[1],tipo="ladrillo")
+		const soporte2 = new Soporte(columna=[15,17],fila=[2],tipo="ladrillo")
 
-	assert.that(true)
+		 const jugador4 = new Jugador(   position = game.at(16,2),
+									orientacion = izquierda,
+									nombre = "zenitsu",
+									imagen = "zenitsu.png",
+									imagenDerecha = "zenitsu.png",
+									imagenIzquierda = "zenitsu.png",
+									imagenDisparo = "vacio.png",
+									imagenDisparoIzquierda = "vacio.png",
+									poder = "rayozenitsu.png",
+									sonidoPoder= "rayosX.mp3", 
+									imagenDeVictoria = "zenitsuGanador.png", 
+									imagenEscudo = "zenitsuEscudo.png",
+									imagenEscudoIzquierda = "zenitsuizqEscudo.png") 
+									
+		 const jugador5 = new Jugador(   position = game.at(15,2),
+									orientacion = izquierda,
+									imagen = "zenitsu.png",
+									nombre = "zenitsu",
+									imagenDerecha = "zenitsu.png",
+									imagenIzquierda = "zenitsu.png",
+									imagenDisparo = "vacio.png",
+									imagenDisparoIzquierda = "vacio.png",
+									poder = "rayozenitsu.png",
+									sonidoPoder= "rayosX.mp3", 
+									imagenDeVictoria = "zenitsuGanador.png", 
+									imagenEscudo = "zenitsuEscudo.png",
+									imagenEscudoIzquierda = "zenitsuizqEscudo.png") 
+									
+
+describe "Player Movements" {
+	
+	
+
+	test "el jugador se mueve a la derecha" {
+		jugador4.moverseA(derecha)
+		assert.equals(game.at(17,2), jugador4.position())
+	}
+
+	test "el jugador se mueve a la izquierda" {
+		jugador4.moverseA(izquierda)
+		jugador4.moverseA(izquierda)
+		assert.equals(game.at(14,2), jugador4.position())
+	}
+
+	test "el jugador salta" {
+		jugador4.saltar()
+		assert.that(jugador4.estaSaltando())
+	}
+
+	test "el jugador no se puede mover para abajo cuando hay un objeto" {
+		soporte1.preparar()
+		jugador4.moverseA(abajo)
+		assert.equals(game.at(16,2), jugador4.position())
+	}
+    
+	test "el jugador no se puede mover entre bloques" {
+		soporte1.preparar()
+		soporte2.preparar()
+		jugador4.moverseA(izquierda)
+		assert.equals(game.at(16,2), jugador4.position())
+	}
+	
+}
+
+describe "Funcionalidad Bomba"{
+		
+		
+		test "el Jugador puede poner una bomba y desaparece dsp de un tiempo"{
+			// Las bombas se pueden dejar en cualquier lugar, no es necesario que tenga soporte..... 
+			jugador4.dejarBomba() // cuando comento esto y la linea de abajo me sale que no hay objetos, pero si esta el jugador :o, porq no lo cuenta?
+			jugador4.moverseA(derecha)
+			assert.that((game.getObjectsIn(game.at(16,2)).size()) == 1)
+		}
+		
+		
+		test "la bomba hace KaPum y muere el jugador que se posicione encima"{
+			jugador4.position(game.at(13,2))
+			jugador5.position(game.at(14,2))
+			jugador4.dejarBomba()
+			jugador4.moverseA(derecha)
+			jugador5.moverseA(izquierda)
+			var objetos = (game.getObjectsIn(game.at(13,2)))
+			console.println(objetos.get(0))
+			assert.notThat(game.hasVisual(jugador5))
+			// tendria que existir un atributo que diga si el jugador esta vivio y coleando o en el inframundo
+			// #valenYLucas 
+		}
+		
+		// test para ver que la bomba desaparece dsp de que se pone ??
+		// test para ver que la bomba desaparece cuando explota
+		// test para mostrar que se le acaban las bombas al flaco ?? 
+		
+		test "la bomba hace KaPum y las cajas de alrededor no se van"{
+            soporte1.preparar()
+            jugador4.position(game.at(13,2))
+            jugador5.position(game.at(14,2))
+            jugador4.dejarBomba()
+            jugador4.moverseA(derecha)
+            jugador5.moverseA(izquierda)
+            assert.that((game.getObjectsIn(game.at(16,1)).size()) != 1)
+            assert.that((game.getObjectsIn(game.at(15,1)).size()) != 1)
+            assert.that((game.getObjectsIn(game.at(17,1)).size()) != 1)
+        }
+        
+		
+}
+
+describe "funcionalidad Laser"{
+
+    test "el laser se dispara"{
+
+        jugador4.orientacion(derecha)
+        jugador4.estaDisparando(true)
+        const lineaDeTiro = (jugador4.orientacion()).lineaDeTiro(jugador4.position())
+        lineaDeTiro.forEach({posicion => jugador4.dispararLaserEn(posicion)})
+        if ( jugador4.orientacion() === derecha) {game.schedule(1000, {jugador4.cambiarImagen(imagenDerecha)})}
+        else {game.schedule(1000, {jugador4.cambiarImagen(imagenIzquierda)})} 
+        game.schedule(1000, {jugador4.estaDisparando(false)})
+        assert.that(jugador4.estaDisparando())
+
+    }
+
+    test "el laser se dispara y cuando toca a un jugador lo mata"{
+
+        jugador4.position(game.at(13,2))
+        jugador5.position(game.at(16,2))
+        jugador4.orientacion(derecha)
+        jugador4.estaDisparando(true)
+        const lineaDeTiro = (jugador4.orientacion()).lineaDeTiro(jugador4.position())
+        lineaDeTiro.forEach({posicion => jugador4.dispararLaserEn(posicion)})
+        if ( jugador4.orientacion() === derecha) {game.schedule(1000, {jugador4.cambiarImagen(imagenDerecha)})}
+        else {game.schedule(1000, {jugador4.cambiarImagen(imagenIzquierda)})} 
+        game.schedule(1000, {jugador4.estaDisparando(false)})
+        assert.notThat(game.hasVisual(jugador5))
+
+    }
 
 }
+
+
+

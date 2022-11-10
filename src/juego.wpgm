@@ -1,8 +1,14 @@
+//import juegoManager.*
+import partida.*
+import personajes.*
 import wollok.game.*
-import pepita.*
+import enfrentamiento.*
+import levels.*
+import menu.*
 
-program juego {
-	game.title("Juego Base")
-	game.addVisual(pepita)
+program juego {	
+	menu.ejecutarMenu()
 	game.start()
-}
+	}
+
+	

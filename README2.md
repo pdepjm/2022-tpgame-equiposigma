@@ -26,7 +26,7 @@ Una vez que cada jugador escogió a su personaje la partida iniciara. Los contro
 
 JUGADOR 1:
 -	W,D,A para saltar , ir hacia la derecha e ir hacia la izquierda respectivamente
--	Q para sacar el laser y derrotar a su oponente 
+-	E para sacar el laser y derrotar a su oponente (?
 -	S para soltar una de las tres bombas
 
 JUGADOR 2:
@@ -63,14 +63,6 @@ El juego consta también con una interfaz a la que denominamos obstáculo, esta 
 
 ![image](https://user-images.githubusercontent.com/102762669/198196339-4aa8340b-15a2-4809-b98a-9251091883b1.png)
 
-#### SECCION DIRECCIONES: 
-
-En esta seccion hablaremos del archivo direcciones.wlk. Este cuenta con una clase denominada direccion, que es una clase abstracta la cual cuenta con 3 metedos. Dos de ellos, posicionSiguiente() y modificarOrientacion(), son sobreescritos por todos los objetos que heredan de ella (abajo,izquierda,derecha,arriba). Mientras que el tercer metodo denominado lineaDeTiro(posicion) solo se encuetra sobreescrito por los objetos izquierda y derecha, que lo utilizan para saber en que posiciones el laser va a ser instanciado.
-
-En este ultimo metodo se utiliza la llamada a super, ya que hay funcionalidades repetidas en ambos objetos. 
-
-![image](https://user-images.githubusercontent.com/102762669/198213721-258d618d-51b4-46ab-9128-c0315c539251.png)
-
 
 #### SECCION PARTIDA: 
 
@@ -78,7 +70,7 @@ En este ultimo metodo se utiliza la llamada a super, ya que hay funcionalidades 
 Partida es una clase que consta de 3 metodos muy importantes para el juego, estos son los 3 distintos enfrentamiento que se pueden dar entre los 2 jugadores.
 Tambien cuenta con un método cuantificarVictoria, este método se ocupa de ir actualizando las flags: victoriasPersonaje1 o victoriasPersonaje2 con la cantidad de 
 veces que ganó cada jugador. 
-Cada uno de estos métodos para iniciar un enfrentamiento se ocupa de instanciar el enfrentamiento especifico para tal, donde cada enfrentamiento entiende el método jugar() 
+Cada uno de estos métodos para iniciar un enfrentamiento se ocupa de instanciar el enfrentamiento especifico para tal, donde cada enfrentamiento entiende el método jugar()
 
 para que usamos las clases en esta parte del tp?
 
@@ -86,6 +78,11 @@ lo utilizamos para cada uno de los niveles que al pasar de nivel representa un e
 
 En general, utilizamos clases en vez de objetos porque queremos repetir la misma lógica para muchos objetos que se comportan similar, y con las clases podemos escribir toda esa lógica una única vez y luego instanciar tantos enfrentamientos como requiriéramos. Ademas nos permite realizar mejores en un futuro, como seria el caso de guardar un registro de los resutados de las partidas qu jugaron con sierto personaje.
 
+
+
+
+(imagen de codigo)
+(imagen de diagrama)
 
 #### SECCION NIVELES: 
 
@@ -96,17 +93,3 @@ soportes en levels.wlk para setear la posición de cada soporte por nivel. La cl
 
 ![image](https://user-images.githubusercontent.com/102762669/198193400-0a5aaea0-9800-4aa3-99c5-495b8be91562.png)
 
-
-## Equipo de desarrollo
-
-- ALBERIO, Valentina
-- BENCINA, Morena
-- DELLE PIANE, Lucas
-- PEREZ, Federico
-- RODRIGUEZ, Luciano
-
-## Otros
-
-- Curso:K2004/Facultad:UTNFRBA
-- Versión de wollok
-- Una vez terminado, no tenemos problemas en que el repositorio sea público
