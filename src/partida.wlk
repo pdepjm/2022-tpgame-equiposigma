@@ -164,18 +164,18 @@ object comandosFinales{
 class PantallaFinal{
 	const ganador
 	const property position = game.center()
-	const control1 = new Texto(texto = "presione R para jugar de nuevo", position = game.at(8,8))
+	const control1 = new Texto(texto = "presione J para jugar de nuevo", position = game.at(8,8))
 	const control2 = new Texto(texto = "presione C para cerrar", position = game.at(12,8))
 	
 	method text() = ganador.nombre() + " ganó!"
 
 	method controles()
-	{	
+	{
 		
 		game.addVisual(control1)
 		game.addVisual(control2)
 		game.addVisual(new ImagenDeVictoria(jugador = ganador))
-		keyboard.r().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu() ; fondo.irASeleccionDePersonaje()})
+		keyboard.j().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu() ; fondo.irASeleccionDePersonaje()})
 		keyboard.c().onPressDo({game.stop()})
 	}
 	method restringeMovimiento(){return false}

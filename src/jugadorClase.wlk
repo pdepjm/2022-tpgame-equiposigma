@@ -150,7 +150,7 @@ class Jugador {
 }
 
 class ImagenDeVictoria{
-	const property position = game.at(8,3)
+	const property position = game.at(0,0)
 	const property jugador
 	method image() = jugador.imagenDeVictoria()
 	method efectoLaser(){}
