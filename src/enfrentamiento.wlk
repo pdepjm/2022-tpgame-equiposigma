@@ -35,6 +35,8 @@ class Enfrentamiento {
         personaje2.estaCayendo(false)
         personaje1.cantidadDeBombas(3) 
         personaje2.cantidadDeBombas(3)
+        personaje1.cantidadDeEscudos(3)
+        personaje2.cantidadDeEscudos(3)
 
         personaje1.position(nivel.spawnJ1())
         personaje2.position(nivel.spawnJ2())

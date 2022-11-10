@@ -169,7 +169,7 @@ class PantallaFinal{
 		game.addVisual(control1)
 		game.addVisual(control2)
 		game.addVisual(new ImagenDeVictoria(jugador = ganador))
-		keyboard.r().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu()})
+		keyboard.r().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu() ; fondo.irASeleccionDePersonaje()})
 		keyboard.c().onPressDo({game.stop()})
 	}
 	method restringeMovimiento(){return false}
