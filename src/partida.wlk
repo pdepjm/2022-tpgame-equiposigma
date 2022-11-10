@@ -155,6 +155,12 @@ class PantallaCarga{
 	method efectoLaser(){}
 }
 
+
+object comandosFinales{
+	var property position = game.at(0,10)
+	method image() = "textoFinal.png"
+}
+
 class PantallaFinal{
 	const ganador
 	const property position = game.center()

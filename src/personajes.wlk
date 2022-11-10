@@ -13,7 +13,7 @@ const goku = new Jugador(	position = game.at(3,2),
 									poder = "kamehameha.png", 
 									sonidoPoder = "kamehameha.mp3",
 									nombre = "Goku", 
-									imagenDeVictoria = "gokuGanador.png", 
+									imagenDeVictoria = "gokuImagenVictoria.png", 
 									imagenEscudo = "gokuEscudo.png", 
 									imagenEscudoIzquierda = "gokuizqEscudo.png")
 									
@@ -27,7 +27,7 @@ const goku2 = new Jugador(	position = game.at(3,2),
 									poder = "kamehameha.png", 
 									sonidoPoder = "kamehameha.mp3",
 									nombre = "Goku", 
-									imagenDeVictoria = "gokuGanador.png", 
+									imagenDeVictoria = "gokuImagenVictoria.png", 
 									imagenEscudo = "gokuEscudo.png", 
 									imagenEscudoIzquierda = "gokuizqEscudo.png")
 	
@@ -41,7 +41,7 @@ const superman = new Jugador(   position = game.at(16,2),
 									poder = "visionCalorica.png",
 									sonidoPoder = "rayosX.mp3",
 									nombre = "Superman", 
-									imagenDeVictoria = "supermanGanador.png", 
+									imagenDeVictoria = "supermanImagenVictoria.png", 
 									imagenEscudo = "supermanEscudo.png", 
 									imagenEscudoIzquierda = "supermanizqEscudo.png")
 									
@@ -55,7 +55,7 @@ const superman2 = new Jugador(   position = game.at(16,2),
 									poder = "visionCalorica.png",
 									sonidoPoder = "rayosX.mp3",
 									nombre = "Superman", 
-									imagenDeVictoria = "supermanGanador.png", 
+									imagenDeVictoria = "supermanImagenVictoria.png", 
 									imagenEscudo = "supermanEscudo.png", 
 									imagenEscudoIzquierda = "supermanizqEscudo.png")
 						
@@ -69,7 +69,7 @@ const superman2 = new Jugador(   position = game.at(16,2),
                                     poder = "rayozenitsu.png",
                                     sonidoPoder= "corte.mp3",
                                     nombre = "Zenitsu", 
-                                    imagenDeVictoria = "zenitsuGanador.png", 
+                                    imagenDeVictoria = "zenitsuImagenVictoria.png", 
 									imagenEscudo = "zenitsuEscudo.png", 
 									imagenEscudoIzquierda = "zenitsuizqEscudo.png") 
 
@@ -83,7 +83,7 @@ const superman2 = new Jugador(   position = game.at(16,2),
                                     poder = "rayozenitsu.png",
                                     sonidoPoder= "corte.mp3",
                                     nombre = "Zenitsu", 
-                                    imagenDeVictoria = "zenitsuGanador.png", 
+                                    imagenDeVictoria = "zenitsuImagenVictoria.png", 
 									imagenEscudo = "zenitsuEscudo.png", 
 									imagenEscudoIzquierda = "zenitsuizqEscudo.png") 
 
@@ -97,7 +97,7 @@ const superman2 = new Jugador(   position = game.at(16,2),
                                     poder = "pelota.png",
                                     sonidoPoder= "marama.mp3",
                                     nombre = "Holder", 
-                                    imagenDeVictoria = "holderGanador.png", 
+                                    imagenDeVictoria = "holderImagenVictoria.png", 
 									imagenEscudo = "holderEscudo.png", 
 									imagenEscudoIzquierda = "holderizqEscudo.png")
                                     
@@ -111,7 +111,7 @@ const holder2 = new Jugador(   position = game.at(16,2),
                                     poder = "pelota.png",
                                     sonidoPoder= "marama.mp3",
                                     nombre = "Holder", 
-                                    imagenDeVictoria = "holderGanador.png", 
+                                    imagenDeVictoria = "holderImagenVictoria.png", 
 									imagenEscudo = "holderEscudo.png", 
 									imagenEscudoIzquierda = "holderizqEscudo.png")
 
@@ -125,7 +125,7 @@ const holder2 = new Jugador(   position = game.at(16,2),
                                     poder = "visionCalorica.png",
                                     sonidoPoder= "aaghh.mp3",
                                     nombre = "chewbacca",
-                                    imagenDeVictoria = "chewbaccaGanador.png", 
+                                    imagenDeVictoria = "chewbaccaImagenVictoria.png", 
 									imagenEscudo = "chewbaccaEscudo.png", 
 									imagenEscudoIzquierda = "chewbaccaizqEscudo.png")
 
@@ -139,7 +139,7 @@ const holder2 = new Jugador(   position = game.at(16,2),
                                     poder = "visionCalorica.png",
                                     sonidoPoder= "aaghh.mp3",
                                     nombre = "Chewbacca", 
-                                    imagenDeVictoria = "chewbaccaGanador.png", 
+                                    imagenDeVictoria = "chewbaccaImagenVictoria.png", 
 									imagenEscudo = "chewbaccaEscudo.png", 
 									imagenEscudoIzquierda = "chewbaccaizqEscudo.png")
 
@@ -153,7 +153,7 @@ const holder2 = new Jugador(   position = game.at(16,2),
                                     poder = "pelotazo.png",
                                     sonidoPoder= "felizAnioNuevoChino.mp3",
                                     nombre = "Messi", 
-                                    imagenDeVictoria = "messiGanador.png", 
+                                    imagenDeVictoria = "messiImagenVictoria.png", 
 									imagenEscudo = "messiEscudo.png", 
 									imagenEscudoIzquierda = "messiizqEscudo.png")
      
@@ -167,6 +167,6 @@ const holder2 = new Jugador(   position = game.at(16,2),
                                     poder = "pelotazo.png",
                                     sonidoPoder= "felizAnioNuevoChino.mp3",
                                     nombre = "Messi", 
-                                    imagenDeVictoria = "messiGanador.png", 
+                                    imagenDeVictoria = "messiImagenVictoria.png", 
 									imagenEscudo = "messiEscudo.png", 
 									imagenEscudoIzquierda = "messiizqEscudo.png")                               
