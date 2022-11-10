@@ -45,7 +45,7 @@ class Partida{
 		 game.onTick(110, "pasar 2do nivel", 
 		 	{if(terminoPrimerEnfrentamiento)
 		 		{
-		 		const pantalla = new PantallaCarga(texto = enfrentamiento.ganador().nombre() + " ganó!")
+		 		const pantalla = new PantallaCarga(jugador =  enfrentamiento.ganador())
 		 		game.addVisual(pantalla)
 		 		self.cuantificarVictoria(enfrentamiento)
 		 		self.jugarSegundoNivel()
@@ -71,7 +71,7 @@ class Partida{
 			game.onTick(110, "pasar 3er nivel", 
 				{if(terminoSegundoEnfrentamiento)
 					{self.cuantificarVictoria(enfrentamiento2)
-					 const pantalla = new PantallaCarga(texto = enfrentamiento2.ganador().nombre() + " ganó!")
+					 const pantalla = new PantallaCarga(jugador = enfrentamiento2.ganador())
 					 game.addVisual(pantalla)
 					 self.determinarTerceraEtapa()}}) 			 	
 			}
@@ -147,10 +147,9 @@ class Partida{
 
 
 class PantallaCarga{
-	const texto
-	const property position = game.center()
-	method text() = texto
-	method textColor() = "FFFFFF"
+	const jugador
+	const property position = game.at(0,0)
+	method image() = jugador.imagenDeVictoria()
 	method restringeMovimiento(){return false}
 	method efectoLaser(){}
 }
@@ -163,17 +162,17 @@ object comandosFinales{
 
 class PantallaFinal{
 	const ganador
-	const property position = game.center()
-	const control1 = new Texto(texto = "presione J para jugar de nuevo", position = game.at(8,8))
-	const control2 = new Texto(texto = "presione C para cerrar", position = game.at(12,8))
+	const property position = game.at(0,0)
+	//const control1 = new Texto(texto = "presione J para jugar de nuevo", position = game.at(8,8))
+	//const control2 = new Texto(texto = "presione C para cerrar", position = game.at(12,8))
 	
-	method text() = ganador.nombre() + " ganó!"
+	method image() = "textoFinal.png"
 
 	method controles()
 	{
 		
-		game.addVisual(control1)
-		game.addVisual(control2)
+		//game.addVisual(control1)
+		//game.addVisual(control2)
 		game.addVisual(new ImagenDeVictoria(jugador = ganador))
 		keyboard.j().onPressDo({menu.reiniciarMenu(); menu.ejecutarMenu() ; fondo.irASeleccionDePersonaje()})
 		keyboard.c().onPressDo({game.stop()})

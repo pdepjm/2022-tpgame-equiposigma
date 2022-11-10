@@ -21,8 +21,9 @@ object menu {
 		game.addVisual(fondo)
 		keyboard.enter().onPressDo({fondo.irASeleccionDePersonaje()})
 		keyboard.b().onPressDo({fondo.volverAlInicio()})
+		keyboard.c().onPressDo({fondo.mirarControles()})
 		game.onTick(50, "check para iniciar la partida", {self.iniciarPartida()})
-		//game.schedule(100, {game.sound("linkinPark.mp3").play()})
+		soundtrack.iniciar()
 
 	}
 	
@@ -80,8 +81,10 @@ object fondo{
 	var property position = game.at(0,0)
 	var property imagenDeFondo = "menuprincipal.png"
 	method image() = imagenDeFondo
-	method mirarControles(){}
-	method volver(){}
+	method mirarControles(){
+		imagenDeFondo = "controles.png"	
+	}
+
 	method irASeleccionDePersonaje(){
 		imagenDeFondo = "selectorPersonajes.png"
 		menu.configurarSelectores()
@@ -92,6 +95,17 @@ object fondo{
 	method efectoLaser(){}
 	method restringeMovimiento(){}
 }
+
+object soundtrack{
+    const property musica = game.sound("linkinPark.mp3")
+    var inicio = false
+    method iniciar() {
+        if(!inicio){
+        game.schedule(100, {musica.play()})
+        inicio = true}
+    }
+}
+
 
 
 
